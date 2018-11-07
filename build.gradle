@@ -21,9 +21,12 @@ sourceSets {
         main.resources.srcDirs = ['resources']
 }
 
-
 dependencies {
-    compile 'origami:origami:4.0.0-beta7'
+    compile('origami:origami:4.0.0-beta7') {
+        exclude group: 'opencv'
+    }
+    compile 'opencv:opencv:4.0.0-beta2'
+    compile 'opencv:opencv-native:4.0.0-beta2'
     testCompile 'junit:junit:4.12'
 }
 
