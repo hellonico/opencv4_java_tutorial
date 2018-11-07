@@ -1,0 +1,32 @@
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+
+}
+
+// Define the main class for the application
+mainClassName = 'HelloCv'
+
+sourceSets {
+        main.java.srcDirs = ['java']
+        main.resources.srcDirs = ['resources']
+}
+
+
+dependencies {
+    compile 'origami:origami:4.0.0-beta7'
+    testCompile 'junit:junit:4.12'
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use jcenter for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+      maven {
+        url "https://repository.hellonico.info/repository/hellonico/"
+    }
+}
