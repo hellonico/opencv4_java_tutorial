@@ -8,7 +8,13 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'HelloCv'
+// mainClassName = 'HelloCv'
+
+task execute(type:JavaExec) {
+   main = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "HelloCv"
+   classpath = sourceSets.main.runtimeClasspath
+   args = project.hasProperty("args") ? project.getProperty("args") : []
+}
 
 sourceSets {
         main.java.srcDirs = ['java']
