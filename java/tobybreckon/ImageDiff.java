@@ -38,8 +38,8 @@ public class ImageDiff {
 
         // load two image files
 
-        Mat img1 = Imgcodecs.imread("files/toycars1.png");
-        Mat img2 = Imgcodecs.imread("files/toycars2.png");
+        Mat img1 = Imgcodecs.imread("data/lena.jpg");
+        Mat img2 = Imgcodecs.imread("data/lena.jpg");
 
         // create a new image object to store image difference
 
