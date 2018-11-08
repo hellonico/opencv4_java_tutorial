@@ -26,10 +26,19 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.HOGDescriptor;
 import org.opencv.videoio.VideoCapture;
+import org.scijava.nativelib.NativeLoader;
 
 // ********************************************************
 
 public class hogPeopleDetection {
+	static {
+		try {
+			// Load the native OpenCV library
+			NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		} catch (Exception e) {
+
+		}
+	}
 
 	public static void main(String[] args) throws InterruptedException {
 
