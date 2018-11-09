@@ -1,4 +1,4 @@
-(ns dnn
+(ns tensorflow
     (:import 
       [org.opencv.core Core]
       [org.opencv.dnn Dnn])
@@ -17,7 +17,7 @@
 
     (pprint
       (-> 
-      (.forward net "softmax2")
+      (.forward net)
       (.reshape 1 1)
       ( #(do (Core/minMaxLoc %) %) )
       (sort! SORT_DESCENDING)
@@ -28,3 +28,7 @@
   (run-image-on-network 
     "data/tf/grace_hopper_227.png"
     "data/tf/tensorflow_inception_graph.pb"))
+
+(comment
+  (-main)
+  )
