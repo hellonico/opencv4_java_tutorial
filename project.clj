@@ -1,6 +1,6 @@
 (defproject cv4.tutorial "0.1.0-SNAPSHOT"
   :java-source-paths ["java"]
-  :main HelloCv
+  ;:main HelloCv
   :plugins [[lein-auto "0.1.3"]]
   :source-paths ["clj"]
   :auto {:default {:file-pattern #"\.(java)$"}}

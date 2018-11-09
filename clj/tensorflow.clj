@@ -1,4 +1,4 @@
-(ns tensorflow
+(ns dnn
     (:import 
       [org.opencv.core Core]
       [org.opencv.dnn Dnn])
