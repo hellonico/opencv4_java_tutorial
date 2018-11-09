@@ -164,7 +164,7 @@ layers {
   bottom: "fc7"
   top: "fc8"
   inner_product_param {
-    num_output: 2
+    num_output: 8
   }
 }
 layers {
