@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -178,16 +179,10 @@ class CalcBackProject2 {
 }
 
 public class CalcBackProjectDemo2 {
-    static {
-        try {
-            // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        } catch (Exception e) {
 
-        }
-    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         // Schedule a job for the event dispatch thread:
         // creating and showing this application's GUI.

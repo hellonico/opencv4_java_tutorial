@@ -23,18 +23,17 @@ public class DarknetDemo {
     }
 
     private static void genderDemo() throws IOException {
-//        String sourceImageFile = "data/dnn/darknetd/eagle.jpg";
 
         runDark("data/dnn/darknetd/eagle.jpg");
-        runDark("data/dnn/darknetd/dog.jpg");
-        runDark("data/dnn/darknetd/horses.jpg");
+//        runDark("data/dnn/darknetd/dog.jpg");
+//        runDark("data/dnn/darknetd/horses.jpg");
     }
 
     private static void runDark(String sourceImageFile) throws IOException {
         String tfnetFile = "data/dnn/darknetd/yolov3.weights";
         String protoFil = "data/dnn/darknetd/yolov3.cfg";
         List<String> labels =
-                Files.readAllLines(Paths.get("data/dnn/darknetd/labels.txt"));
+                Files.readAllLines(Paths.get("data/dnn/darknetd/yolov3.names"));
 
         runDarknetNetwork(sourceImageFile, tfnetFile, protoFil, labels);
     }
@@ -46,19 +45,22 @@ public class DarknetDemo {
         System.out.println(layernames);
 
         Mat image = Imgcodecs.imread(sourceImageFile);
-        Mat inputBlob = Dnn.blobFromImage(image, 1.0, new Size(608, 608), new Scalar(0), true ,true);
+        Mat inputBlob = Dnn.blobFromImage(image, 1.0, new Size(608, 608), new Scalar(0), false, false ); //, new Scalar(0), true ,true);
         net.setInput(inputBlob);
         net.setPreferableBackend(Dnn.DNN_BACKEND_OPENCV);
+//        Mat result = net.forward("yolo_106");
         Mat result = net.forward();
-        result = result.reshape( 1);
-        System.out.println(result.width());
+
+//        result = result.reshape(80, 1);
+//        result = result.reshape(1, 5);
+//        System.out.println(result.dump());
         Core.MinMaxLocResult minmax = Core.minMaxLoc(result);
         System.out.println(minmax.maxLoc);
         System.out.println(minmax.maxVal);
 
         System.out.println(labels.get((int) minmax.maxLoc.x ));
-        System.out.println(labels.get((int) minmax.maxLoc.x -1 ));
-        System.out.println(labels.get((int) minmax.maxLoc.x +1));
+//        System.out.println(labels.get((int) minmax.maxLoc.x -1 ));
+//        System.out.println(labels.get((int) minmax.maxLoc.x +1));
     }
 
 }

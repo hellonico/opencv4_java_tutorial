@@ -9,6 +9,7 @@ package webcam;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -101,17 +102,9 @@ class processor {
 }
 
 public class FaceDetection {
-    static {
-        try {
-            // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        } catch (Exception e) {
 
-        }
-    }
-
-    public static void main(String arg[]) {
-
+    public static void main(String arg[]) throws IOException {
+        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         String window_name = "Capture - Face detection";
         JFrame frame = new JFrame(window_name);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
