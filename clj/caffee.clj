@@ -2,11 +2,10 @@
   (:require
     [clojure.pprint :refer [pprint]]
     [opencv4.utils :as u]
-    [opencv4.core :refer :all])
-  (:import (org.opencv.dnn Dnn)))
+    [opencv4.core :refer :all]))
 
 (defn run-image-on-network[sourceImageFile tffile protFil labels]
-(let [ net (Dnn/readNetFromCaffe protFil tffile)
+(let [ net (read-net-from-caffe protFil tffile)
        image (imread sourceImageFile)
       inputBlob (blob-from-image image 1.0 (new-size 256 256))
       ]

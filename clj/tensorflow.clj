@@ -1,25 +1,22 @@
 (ns tensorflow
-    (:import 
-      [org.opencv.core Core]
-      [org.opencv.dnn Dnn])
     (:require
       [clojure.pprint :refer [pprint]]
       [opencv4.utils :as u]
       [opencv4.core :refer :all]))
 
 (defn run-image-on-network[sourceImageFile tffile]
-(let [ net (Dnn/readNetFromTensorflow tffile)
+(let [ net (read-net-from-tensorflow tffile)
        image (imread sourceImageFile)
-      inputBlob (Dnn/blobFromImage image 1.0 (new-size 224 224) (new-scalar 0.0) true true)]
+      inputBlob (blob-from-image image 1.0 (new-size 224 224) (new-scalar 0.0) true true)]
     (doto net
      (.setInput inputBlob "input")
-     (.setPreferableBackend Dnn/DNN_BACKEND_OPENCV))
+     (.setPreferableBackend DNN_BACKEND_OPENCV))
 
     (pprint
       (-> 
       (.forward net)
       (.reshape 1 1)
-      ( #(do (Core/minMaxLoc %) %) )
+      ( #(do (min-max-loc %) %) )
       (sort! SORT_DESCENDING)
       (.colRange 0 5)
       (dump)))))
