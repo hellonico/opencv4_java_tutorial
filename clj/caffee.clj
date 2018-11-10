@@ -1,27 +1,25 @@
 (ns caffee
-    (:import 
-      [org.opencv.core Core]
-      [org.opencv.dnn Dnn])
-    (:require
-      [clojure.pprint :refer [pprint]]
-      [opencv4.utils :as u]
-      [opencv4.core :refer :all]))
+  (:require
+    [clojure.pprint :refer [pprint]]
+    [opencv4.utils :as u]
+    [opencv4.core :refer :all])
+  (:import (org.opencv.dnn Dnn)))
 
 (defn run-image-on-network[sourceImageFile tffile protFil labels]
-(let [ net (Dnn/readNetFromCaffe protFil tffile )
+(let [ net (Dnn/readNetFromCaffe protFil tffile)
        image (imread sourceImageFile)
-      inputBlob (Dnn/blobFromImage image 1.0 (new-size 256 256))
+      inputBlob (blob-from-image image 1.0 (new-size 256 256))
       ]
     (doto net
      (.setInput inputBlob)
-     (.setPreferableBackend Dnn/DNN_BACKEND_OPENCV))
+     (.setPreferableBackend DNN_BACKEND_OPENCV))
 
     (let [
           result
           (->
             (.forward net)
             (.reshape 1 1))
-          minmax (Core/minMaxLoc result)
+          minmax (min-max-loc result)
           x (-> minmax (.-maxLoc) (.-x) (int))
           ]
     (println (nth labels x))
