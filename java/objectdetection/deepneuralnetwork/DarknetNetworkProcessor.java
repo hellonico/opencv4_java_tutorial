@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeepNeuralNetworkProcessor {
+public class DarknetNetworkProcessor {
     private final static Logger LOGGER = LoggerFactory.getLogger(DeepNeuralNetworkProcessor.class);
     private Net net;
 //    private final String proto = "data/dnnmodel/MobileNetSSD_deploy.prototxt";
@@ -32,7 +32,7 @@ public class DeepNeuralNetworkProcessor {
         Files.readAllLines(Paths.get("data/tf/imagenet_slim_labels.txt"));
 
 
-    public DeepNeuralNetworkProcessor() throws IOException {
+    public DarknetNetworkProcessor() throws IOException {
       this.net = Dnn.readNetFromDarknet(proto, model);
     }
 
