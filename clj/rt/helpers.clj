@@ -31,7 +31,6 @@
         blog (blob-from-image image 0.007843 (new-size 300 300) (new-scalar meanVal meanVal meanVal) false false)
         detections (do (.setInput net blog) (.forward net))
         reshaped (.reshape detections 1 (/ (.total detections) 7))
-        ;dummy (do (println (dump detections)))
         detected-objects (map #(to-obj reshaped % colsi rowsi) (range 0 (.rows reshaped)))]
     (annotate-image! image detected-objects)))
 
