@@ -1,8 +1,7 @@
 (ns rt.catwalk.videotoscreen
   (:require [rt.helpers :refer [find-objects!]]
             [opencv4.utils :refer [show re-show]]
-            [opencv4.core :refer [imread imwrite]]))
-
+            [opencv4.core :refer [new-mat resize! new-size new-videocapture imread imwrite]]))
 
 (defn -main [& args]
   (let [
