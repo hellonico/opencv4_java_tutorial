@@ -5,11 +5,10 @@
 
 (defn -main [& args]
   (let [
-        cap (new-videocapture "data/dnn/rt/cat.mp4")
+        cap (new-videocapture (or (first args) "data/dnn/rt/cat.mp4"))
         buffer (new-mat)
         frame (show (do (.read cap buffer) (resize! buffer (new-size 384 216))))]
-    (while (not (nil? buffer))
-      (.read cap buffer)
+    (while (.read cap buffer)
       (let [annon (-> buffer (resize! (new-size 384 216)) (find-objects!))]
         (re-show frame annon)))
     (.release cap)))

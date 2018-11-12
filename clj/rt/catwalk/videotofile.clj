@@ -1,16 +1,22 @@
 (ns rt.catwalk.videotofile
   (:require [rt.helpers :refer [find-objects!]]
-            [opencv4.video :as v]
+            [opencv4.utils :refer [show re-show]]
+            [opencv4.video :refer [new-videowriter]]
             [opencv4.core :refer [new-mat resize! new-size new-videocapture imread imwrite]])
   (:import (java.util Date)))
 
 (defn -main [& args]
-  (let [cap (new-videocapture "data/dnn/rt/cat.mp4")
-        w (v/new-videowriter)
-        buffer (new-mat)]
-    (.open w (str "cat" (Date.) ".mpeg") -1 30 (new-size 384 216))
+  (let [
+        cap (new-videocapture (or (first args) "data/dnn/rt/cat.mp4"))
+        buffer (new-mat)
+        output-file (or (second args) (str "cat_" (Date.) ".mpeg"))
+        w (new-videowriter)
+        ; need a fake frame before doing analysis probably due to the empty mat above
+        _frame (do (.read cap buffer) (resize! buffer (new-size 384 216)))]
+    (.open w output-file -1 30 (new-size 384 216))
     (while (.read cap buffer)
       (let [annon (-> buffer (resize! (new-size 384 216)) (find-objects!))]
         (.write w annon)))
+        ;(re-show frame annon)))
     (.release w)
     (.release cap)))
