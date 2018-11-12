@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 
 class CaffeProcessor {
     private final static Logger LOGGER = LoggerFactory.getLogger(CaffeProcessor.class);
-    private final List<String> classNames = Files.readAllLines(Paths.get("data/dnn/MobileNetSSD.names"));
+    private final List<String> classNames = Files.readAllLines(Paths.get("data/dnn/rt/MobileNetSSD.names"));
     private Net net;
 
     CaffeProcessor() throws IOException {
