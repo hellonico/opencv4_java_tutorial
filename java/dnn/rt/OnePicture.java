@@ -18,12 +18,12 @@ public class OnePicture {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         CaffeProcessor processor = new CaffeProcessor();
-        Mat frame = Imgcodecs.imread("data/dnnmodel/dog.jpg");
+        Mat frame = Imgcodecs.imread("data/dnn/rt/dog.jpg");
         List<DnnObject> detectObject = processor.getObjectsInFrame(frame);
         for (DnnObject obj : detectObject) {
             Imgproc.rectangle(frame, obj.leftBottom, obj.rightTop, new Scalar(255, 0, 0), 1);
             Imgproc.putText(frame, label(obj), obj.leftBottom, Imgproc.FONT_HERSHEY_PLAIN, 1, new Scalar(255, 0, 0));
         }
-        Imgcodecs.imwrite("DetectedObject.jpg", frame);
+        Imgcodecs.imwrite("detectedobject.jpg", frame);
     }
 }
