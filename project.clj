@@ -11,7 +11,3 @@
   :auto {:default {:file-pattern #"\.(java)$"}}
   :repositories [["vendredi" "https://repository.hellonico.info/repository/hellonico/"]]
   :dependencies [[org.clojure/clojure "1.8.0"] [origami/origami "4.0.0-beta8"]])
-
-
-
-
