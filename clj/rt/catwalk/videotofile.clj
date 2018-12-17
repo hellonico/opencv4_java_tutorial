@@ -13,7 +13,7 @@
         w (new-videowriter)
         ; need a fake frame before doing analysis probably due to the empty mat above
         _frame (do (.read cap buffer) (resize! buffer (new-size 384 216)))]
-    (.open w output-file -1 30 (new-size 384 216))
+    (.open w output-file -1 24 (new-size 384 216))
     (while (.read cap buffer)
       (let [annon (-> buffer (resize! (new-size 384 216)) (find-objects!))]
         (.write w annon)))
