@@ -23,11 +23,12 @@ sourceSets {
 }
 
 dependencies {
-    compile('origami:origami:4.0.0-beta7') {
-        exclude group: 'opencv'
-    }
-    compile 'opencv:opencv:4.0.0-beta2'
-    compile 'opencv:opencv-native:4.0.0-beta2'
+    // compile('origami:origami:4.1.1-1') {
+    //     exclude group: 'opencv'
+    // }
+    // compile 'opencv:opencv:4.0.0-0'
+    // compile 'opencv:opencv-native:4.0.0-0'
+    compile('origami:origami:4.1.1-1') 
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
