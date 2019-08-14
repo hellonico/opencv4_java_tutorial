@@ -1,7 +1,10 @@
+import java.io.IOException;
+
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfKeyPoint;
 import org.opencv.features2d.Features2d;
+import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.xfeatures2d.SURF;
 import org.scijava.nativelib.NativeLoader;
@@ -28,25 +31,16 @@ class SURFDetection {
 
         // -- Show detected (drawn) keypoints
         Imgcodecs.imwrite("surf_result.png", src);
-        // HighGui.imshow("SURF Keypoints", src);
-        // HighGui.waitKey(0);
+        HighGui.imshow("SURF Keypoints", src);
+        HighGui.waitKey();
 
         System.exit(0);
     }
 }
 
 public class SurfDemo {
-    static {
-        try {
-            // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        } catch (Exception e) {
-
-        }
-    }
-
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         new SURFDetection().run(args);
     }
 }
