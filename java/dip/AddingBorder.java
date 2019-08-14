@@ -10,8 +10,7 @@ import java.io.IOException;
 public class AddingBorder {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg",
-                Imgcodecs.CV_LOAD_IMAGE_COLOR);
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg");
         Mat destination = new Mat(source.rows(), source.cols(), source.type());
 
         int top, bottom, left, right;

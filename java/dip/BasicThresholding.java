@@ -12,7 +12,7 @@ public class BasicThresholding {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.CV_LOAD_IMAGE_COLOR);
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.IMREAD_COLOR);
         Mat destination = new Mat(source.rows(), source.cols(), source.type());
 
         Imgproc.threshold(source, destination, 127, 255, Imgproc.THRESH_TOZERO);
@@ -26,7 +26,6 @@ public class BasicThresholding {
 
         Imgproc.threshold(source, destination, 127, 255, Imgproc.THRESH_BINARY_INV);
         Imgcodecs.imwrite("ThreshBinaryInv.jpg", destination);
-
 
     }
 }

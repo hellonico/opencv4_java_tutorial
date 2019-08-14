@@ -14,7 +14,7 @@ public class ApplyingKirsch {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         int kernelSize = 9;
 
-        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.IMREAD_GRAYSCALE);
         Mat destination = new Mat(source.rows(), source.cols(), source.type());
 
         Mat kernel = new Mat(kernelSize, kernelSize, CvType.CV_32F) {

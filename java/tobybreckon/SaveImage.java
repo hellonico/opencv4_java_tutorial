@@ -40,7 +40,7 @@ public class SaveImage {
         // write image to file (first setting up the compression quality to use)
 
         MatOfInt params = new MatOfInt();
-        params.fromArray(new int[] { Imgcodecs.CV_IMWRITE_JPEG_QUALITY, 75, 0 });
+        params.fromArray(new int[] { Imgcodecs.IMREAD_COLOR, 75, 0 });
 
         System.out.println("Saving image to file ....");
 

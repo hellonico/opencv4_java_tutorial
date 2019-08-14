@@ -13,10 +13,10 @@ public class ZoomingEffect {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
-        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.IMREAD_GRAYSCALE);
 
         int zoomingFactor = 3;
-        Mat destination = new Mat(source.rows(), source.cols() , source.type());
+        Mat destination = new Mat(source.rows(), source.cols(), source.type());
         Imgproc.resize(source, destination, destination.size(), zoomingFactor, zoomingFactor, Imgproc.INTER_LINEAR);
         Imgcodecs.imwrite("zoomed2.jpg", destination);
 

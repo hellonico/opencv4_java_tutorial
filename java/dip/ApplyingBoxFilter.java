@@ -27,9 +27,10 @@ public class ApplyingBoxFilter {
         }
         return kernel;
     }
+
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+        Mat source = Imgcodecs.imread("data/dip/grayscale.jpg", Imgcodecs.IMREAD_GRAYSCALE);
         Mat destination = new Mat(source.rows(), source.cols(), source.type());
 
         Mat kernel5 = createKernelOfSize(5);

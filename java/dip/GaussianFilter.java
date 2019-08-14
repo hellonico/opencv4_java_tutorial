@@ -12,14 +12,13 @@ import java.io.IOException;
 public class GaussianFilter {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg",
-                Imgcodecs.CV_LOAD_IMAGE_COLOR);
-        Mat destination = new Mat(source.rows(),source.cols(),source.type());
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.IMREAD_COLOR);
+        Mat destination = new Mat(source.rows(), source.cols(), source.type());
 
-        Imgproc.GaussianBlur(source, destination,new Size(11,11), 0);
+        Imgproc.GaussianBlur(source, destination, new Size(11, 11), 0);
         Imgcodecs.imwrite("gaussianblur1.jpg", destination);
 
-        Imgproc.GaussianBlur(source, destination,new Size(45,45), 0);
+        Imgproc.GaussianBlur(source, destination, new Size(45, 45), 0);
         Imgcodecs.imwrite("gaussianblur45.jpg", destination);
 
     }

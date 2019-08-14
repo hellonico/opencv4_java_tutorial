@@ -14,8 +14,8 @@ public class EnhanceImageBrightness {
 
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.CV_LOAD_IMAGE_COLOR);
-        Mat destination = new Mat(source.rows(), source.cols(),source.type());
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.IMREAD_COLOR);
+        Mat destination = new Mat(source.rows(), source.cols(), source.type());
         source.convertTo(destination, -1, alpha, beta);
         Imgcodecs.imwrite("brightWithAlpha2Beta50.jpg", destination);
 

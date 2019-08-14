@@ -13,8 +13,9 @@ import java.io.IOException;
 public class ApplyingWatermark {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.CV_LOAD_IMAGE_COLOR);
-        Imgproc.putText(source, "dip.hellonico.info", new Point(source.rows() / 2, source.cols() / 2), Imgproc.FONT_ITALIC, new Double(1), new Scalar(255));
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.IMREAD_COLOR);
+        Imgproc.putText(source, "dip.hellonico.info", new Point(source.rows() / 2, source.cols() / 2),
+                Imgproc.FONT_ITALIC, new Double(1), new Scalar(255));
         Imgcodecs.imwrite("watermarked.jpg", source);
     }
 }

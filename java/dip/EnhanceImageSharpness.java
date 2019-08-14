@@ -13,7 +13,7 @@ public class EnhanceImageSharpness {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
-        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.CV_LOAD_IMAGE_COLOR);
+        Mat source = Imgcodecs.imread("data/dip/digital_image_processing.jpg", Imgcodecs.IMREAD_COLOR);
         Mat destination = new Mat(source.rows(), source.cols(), source.type());
         Imgproc.GaussianBlur(source, destination, new Size(1, 1), 10);
         Core.addWeighted(source, 1.5, destination, -0.5, 0, destination);
