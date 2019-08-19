@@ -18,6 +18,7 @@ import org.scijava.nativelib.NativeLoader;
 
 public class OpenCVWebcam extends JPanel {
 
+    private static final long serialVersionUID = 2308883915053920237L;
     BufferedImage image;
     static {
         try {

@@ -20,7 +20,6 @@ import javax.swing.border.EmptyBorder;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.scijava.nativelib.NativeLoader;
@@ -127,8 +126,9 @@ class VideoCap {
         cap.open(0);
         processor = new CaffeProcessor();
     }
-    private static String label(DnnObject obj){
-        return String.format("%s [%.0f%%] ", obj.objectName, obj.confidence*100);
+
+    private static String label(DnnObject obj) {
+        return String.format("%s [%.0f%%] ", obj.objectName, obj.confidence * 100);
     }
 
     BufferedImage getOneFrame() {
@@ -137,7 +137,8 @@ class VideoCap {
         List<DnnObject> detectObject = processor.getObjectsInFrame(mat2Img.mat);
         for (DnnObject obj : detectObject) {
             Imgproc.rectangle(mat2Img.mat, obj.leftBottom, obj.rightTop, new Scalar(255, 0, 0), 1);
-            Imgproc.putText(mat2Img.mat, label(obj), obj.leftBottom, Imgproc.FONT_HERSHEY_PLAIN, 1, new Scalar(255, 0, 0));
+            Imgproc.putText(mat2Img.mat, label(obj), obj.leftBottom, Imgproc.FONT_HERSHEY_PLAIN, 1,
+                    new Scalar(255, 0, 0));
         }
         return mat2Img.getImage(mat2Img.mat);
     }

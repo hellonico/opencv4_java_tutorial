@@ -3,6 +3,7 @@ package dip.convolution;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.scijava.nativelib.NativeLoader;
@@ -34,7 +35,9 @@ public class ApplyingKirsch {
         };
 
         Imgproc.filter2D(source, destination, -1, kernel);
-        Imgcodecs.imwrite("kirsch.jpg", destination);
+        HighGui.imshow("hello", destination);
+        HighGui.waitKey();
+        // Imgcodecs.imwrite("kirsch.jpg", destination);
 
     }
 }

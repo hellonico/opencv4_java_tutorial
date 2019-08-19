@@ -13,7 +13,7 @@ object BasicThresholding {
     fun main(args: Array<String>) {
         loadLibrary(Core.NATIVE_LIBRARY_NAME)
 
-        val source = imread("data/dip/digital_image_processing.jpg", CV_LOAD_IMAGE_COLOR)
+        val source = imread("data/dip/digital_image_processing.jpg")
         val destination = Mat(source.rows(), source.cols(), source.type())
 
         threshold(source, destination, 127.0, 255.0, THRESH_TOZERO)

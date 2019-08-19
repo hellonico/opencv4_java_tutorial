@@ -3,23 +3,6 @@ package tobybreckon;
 
 import java.io.File;
 
-// Example : loop through a set of image files
-
-// there are several ways to do this, but this one is simple 
-// to setup
-
-// Author : Toby Breckon, toby.breckon@durham.ac.uk
-
-// Copyright (c) 2015 Durham University
-// License : LGPL - http://www.gnu.org/licenses/lgpl.html
-
-// version 0.2
-
-// ********************************************************
-
-// import required OpenCV components
-
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 

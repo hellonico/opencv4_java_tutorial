@@ -14,8 +14,7 @@ object ImagePyramid {
     fun main(args: Array<String>) {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
 
-        var source = imread("data/dip/digital_image_processing.jpg",
-                CV_LOAD_IMAGE_COLOR)
+        var source = imread("data/dip/digital_image_processing.jpg")
 
         val destination1 = Mat(source.rows() * 2, source.cols() * 2, source.type())
         pyrUp(source, destination1, Size((source.cols() * 2).toDouble(), (source.rows() * 2).toDouble()))

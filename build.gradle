@@ -28,7 +28,7 @@ dependencies {
     // }
     // compile 'opencv:opencv:4.0.0-0'
     // compile 'opencv:opencv-native:4.0.0-0'
-    compile('origami:origami:4.1.1-1') 
+    compile('origami:origami:4.1.1-3') 
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }

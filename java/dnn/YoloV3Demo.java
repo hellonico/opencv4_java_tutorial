@@ -1,21 +1,27 @@
 package dnn;
 
-import org.opencv.core.*;
-import org.opencv.dnn.Dnn;
-import org.opencv.dnn.Net;
-import org.opencv.highgui.HighGui;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfFloat;
+import org.opencv.core.MatOfInt;
+import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.dnn.Dnn;
+import org.opencv.dnn.Net;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+import org.scijava.nativelib.NativeLoader;
 
 public class YoloV3Demo {
 
@@ -121,7 +127,7 @@ public class YoloV3Demo {
         confidenceMat.fromList(tmpConfidences);
         MatOfInt indexMat = new MatOfInt();
         Dnn.NMSBoxes(locMat, confidenceMat, 0.1f, 0.1f, indexMat);
-        StringBuilder output = new StringBuilder();
+        // StringBuilder output = new StringBuilder();
 
         for (int i = 0; i < indexMat.total() && i < nResults; ++i)
         {
