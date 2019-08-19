@@ -11,3 +11,5 @@ build
 out
 .lein-repl-history
 .nrepl-port
+.ipynb_checkpoints
+sepias
