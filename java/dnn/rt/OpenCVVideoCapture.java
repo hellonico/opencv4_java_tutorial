@@ -33,7 +33,7 @@ class Mat2Image {
 
         }
     }
-    Mat mat;
+    Mat mat = new Mat();
     BufferedImage img;
 
     public Mat2Image() {
@@ -85,6 +85,7 @@ public class OpenCVVideoCapture extends JFrame {
 
     private OpenCVVideoCapture() throws IOException {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // setExtendedState(JFrame.MAXIMIZED_BOTH);
         setBounds(0, 0, 1280, 720);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -107,7 +108,7 @@ public class OpenCVVideoCapture extends JFrame {
             for (;;) {
                 repaint();
                 try {
-                    Thread.sleep(30);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                 }
             }

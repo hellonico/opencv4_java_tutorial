@@ -47,15 +47,17 @@ class CaffeProcessor {
 
         net.setInput(blob);
         Mat detections = net.forward();
-        System.out.println("F>" + detections.width() + "x" + detections.height() + "..." + detections.total());
+        // System.out.println("F>" + detections.width() + "x" + detections.height() +
+        // "..." + detections.total());
         // [0, label, confidence, x-left, y-left, x-right, y-right]
         // [0, 2, 0.98572022, 0.14452386, 0.23069865, 0.76481342, 0.78684169;
         // 0, 7, 0.99643564, 0.61877233, 0.13273358, 0.89402419, 0.30446401;
         // 0, 12, 0.97574824, 0.18862528, 0.36047107, 0.42626673, 0.9481743]
 
         detections = detections.reshape(1, (int) detections.total() / 7);
-        System.out.println(detections.dump());
-        System.out.println("S>" + detections.width() + "x" + detections.height() + "..." + detections.dims());
+        // System.out.println(detections.dump());
+        // System.out.println("S>" + detections.width() + "x" + detections.height() +
+        // "..." + detections.dims());
         // all detected objects
         for (int i = 0; i < detections.rows(); ++i) {
             double confidence = detections.get(i, 2)[0];

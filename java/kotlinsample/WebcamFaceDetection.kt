@@ -32,7 +32,7 @@ internal class My_Panel : JPanel() {
         val targetPixels = (image!!.raster.dataBuffer as DataBufferByte).data
         System.arraycopy(sourcePixels, 0, targetPixels, 0, sourcePixels.size)
         val endTime = System.nanoTime()
-        println(String.format("Elapsed time: %.2f ms", (endTime - startTime).toFloat() / 1000000))
+//        println(String.format("Elapsed time: %.2f ms", (endTime - startTime).toFloat() / 1000000))
         return true
     }
 
@@ -73,8 +73,8 @@ internal class processor {
         Imgproc.equalizeHist(mGrey, mGrey)
         face_cascade.detectMultiScale(mGrey, faces)
         val endTime = System.nanoTime()
-        println(String.format("Detect time: %.2f ms", (endTime - startTime).toFloat() / 1000000))
-        println(String.format("Detected %s faces", faces.toArray().size))
+//        println(String.format("Detect time: %.2f ms", (endTime - startTime).toFloat() / 1000000))
+//        println(String.format("Detected %s faces", faces.toArray().size))
         for (rect in faces.toArray()) {
             val center = Point(rect.x + rect.width * 0.5, rect.y + rect.height * 0.5)
             Imgproc.ellipse(mRgba, center, Size(rect.width * 0.5, rect.height * 0.5), 0.0, 0.0, 360.0,
