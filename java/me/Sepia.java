@@ -8,7 +8,6 @@ import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.scijava.nativelib.NativeLoader;
 
-
 /**
  * Using a kernel to get sepia picture
  */

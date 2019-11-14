@@ -26,6 +26,7 @@ public class Camera {
 
     public static void main(String[] args) throws Exception {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Core.setNumThreads(4);
         VideoCapture cap = new VideoCapture(0);
 
         if (!cap.isOpened())
@@ -39,8 +40,8 @@ public class Camera {
         while (cap.grab()) {
             cap.retrieve(matFrame);
             // ims.showImage(threshing(matFrame));
-            // ims.showImage(graying(matFrame));
-            ims.showImage(matFrame);
+            ims.showImage(graying(matFrame));
+            // ims.showImage(matFrame);
         }
 
         cap.release();
