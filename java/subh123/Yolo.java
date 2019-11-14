@@ -29,13 +29,18 @@ public class Yolo {
 
         // Download and load only wights for YOLO , this is obtained from
         // official YOLO site//
-        String modelWeights = "data/yolov3/yolov3.weights";
         // Download and load cfg file for YOLO , can be obtained from
         // official site//
-        String modelConfiguration = "data/yolov3/yolov3.cfg";
+
+        // String modelWeights = "data/yolov3/yolov3.weights";
+        // String modelConfiguration = "data/yolov3/yolov3.cfg";
+
+        String modelWeights = "data/yolo/yolov2-tiny.weights";
+        String modelConfiguration = "data/yolo/yolov2-tiny.cfg";
+        
         // My video file to be analysed//
         // String filePath = "data/cars.mpeg";
-        String filePath = "data/minicars.mpeg";
+        String filePath = "data/cars.mpeg";
 
         // Load video using the videocapture method//
         VideoCapture cap = new VideoCapture(filePath);
@@ -49,6 +54,7 @@ public class Yolo {
         jframe.setContentPane(vidpanel);
         jframe.setSize(600, 600);
         jframe.setVisible(true);
+        jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // OpenCV DNN supports models trained from
         // various frameworks like Caffe and
@@ -70,7 +76,7 @@ public class Yolo {
         }
     }
 
-    final static Size sz = new Size(288, 288);
+    final static Size sz = new Size(416, 416);
 
     private static void findShapes(Mat frame, Net net, List<String> outBlobNames) {
         List<Mat> result = new ArrayList<>();

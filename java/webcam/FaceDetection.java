@@ -70,8 +70,8 @@ class processor {
         Imgproc.equalizeHist(mGrey, mGrey);
         face_cascade.detectMultiScale(mGrey, faces);
         long endTime = System.nanoTime();
-        System.out.println(String.format("Detect time: %.2f ms", (float) (endTime - startTime) / 1000000));
-        System.out.println(String.format("Detected %s faces", faces.toArray().length));
+        // System.out.println(String.format("Detect time: %.2f ms", (float) (endTime - startTime) / 1000000));
+        // System.out.println(String.format("Detected %s faces", faces.toArray().length));
         for (Rect rect : faces.toArray()) {
             Point center = new Point(rect.x + rect.width * 0.5, rect.y + rect.height * 0.5);
             Imgproc.ellipse(mRgba, center, new Size(rect.width * 0.5, rect.height * 0.5), 0, 0, 360,
