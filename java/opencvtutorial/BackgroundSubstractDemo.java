@@ -16,9 +16,9 @@ import java.io.IOException;
 
 class BackgroundSubtraction {
     public void run(String[] args) {
-        String input = args.length > 0 ? args[0] : "data/couple_walk_in_sunset.mov";
+        String input = args.length > 0 ? args[0] : "data/cars.mpeg";
 //        boolean useMOG2 = args.length > 1 ? args[1] == "MOG2" : true;
-        background(input, false);
+        background(input, true);
 
     }
 
@@ -33,7 +33,12 @@ class BackgroundSubtraction {
         //! [create]
 
         //! [capture]
-        VideoCapture capture = new VideoCapture(input);
+        VideoCapture capture;
+        try {
+            capture = new VideoCapture(Integer.parseInt(input));
+        } catch(Exception e) {
+            capture = new VideoCapture(input);
+        }
         if (!capture.isOpened()) {
             System.err.println("Unable to open: " + input);
             System.exit(0);
