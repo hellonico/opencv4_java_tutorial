@@ -11,8 +11,8 @@ import org.opencv.imgproc.Imgproc;
 import org.scijava.nativelib.NativeLoader;
 
 public class OnePicture {
-    private static String label(DnnObject obj){
-        return String.format("%s [%.0f%%] ", obj.objectName, obj.confidence*100);
+    private static String label(DnnObject obj) {
+        return String.format("%s [%.0f%%] ", obj.objectName, obj.confidence * 100);
     }
 
     public static void main(String[] args) throws IOException {
@@ -20,6 +20,7 @@ public class OnePicture {
         CaffeProcessor processor = new CaffeProcessor();
         Mat frame = Imgcodecs.imread("data/dnn/rt/dog.jpg");
         List<DnnObject> detectObject = processor.getObjectsInFrame(frame);
+
         for (DnnObject obj : detectObject) {
             Imgproc.rectangle(frame, obj.leftBottom, obj.rightTop, new Scalar(255, 0, 0), 1);
             Imgproc.putText(frame, label(obj), obj.leftBottom, Imgproc.FONT_HERSHEY_PLAIN, 1, new Scalar(255, 0, 0));
