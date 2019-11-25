@@ -1,21 +1,18 @@
 package kotlinsample
 
-import org.opencv.core.Core
 import org.opencv.core.Mat
-import org.opencv.highgui.HighGui
 import org.opencv.highgui.HighGui.*
 import org.opencv.videoio.VideoCapture
-import org.scijava.nativelib.NativeLoader
+import origami.Origami
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.image.BufferedImage
-import java.awt.image.DataBufferByte
 import java.io.File
 import javax.imageio.ImageIO
 import javax.swing.JFrame
 import javax.swing.JPanel
 
-class OpenCVWebcam : JPanel {
+class CVWebcam : JPanel {
 
     internal lateinit var image: BufferedImage
 
@@ -32,7 +29,7 @@ class OpenCVWebcam : JPanel {
     // Show image on window
     fun window(img: BufferedImage, text: String, x: Int, y: Int) {
         val frame0 = JFrame()
-        frame0.contentPane.add(OpenCVWebcam(img))
+        frame0.contentPane.add(CVWebcam(img))
         frame0.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         frame0.title = text
         frame0.setSize(img.width, img.height + 30)
@@ -88,20 +85,15 @@ class OpenCVWebcam : JPanel {
 
     companion object {
         init {
-            try {
-                // Load the native OpenCV library
-                NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
-            } catch (e: Exception) {
-
-            }
-
+            Origami.init()
         }
 
         @Throws(InterruptedException::class)
         @JvmStatic
         fun main(args: Array<String>) {
 
-            val t = OpenCVWebcam()
+            val t = CVWebcam()
+            val webcamI = if(args.size > 0) Integer.parseInt(args[0]) else 0
             val camera = VideoCapture(0)
 
             val frame = Mat()

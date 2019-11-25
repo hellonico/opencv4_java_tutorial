@@ -93,6 +93,7 @@ public class FaceDetectionWithImageOverlay {
 
     public static void main(String args[]) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Core.setNumThreads(4);
         String window_name = "Capture - Face detection";
         JFrame frame = new JFrame(window_name);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -105,6 +106,7 @@ public class FaceDetectionWithImageOverlay {
         frame.setVisible(true);
         // -- 2. Read the video stream
         Mat webcam_image = new Mat();
+        int camIndex = args.length > 2 ? Integer.parseInt(args[2]) : 0;
         VideoCapture capture = new VideoCapture(0);
 
         // capture.set(Video., value)

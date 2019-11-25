@@ -65,7 +65,7 @@ task customFatJar(type: Jar) {
 //        attributes 'Main-Class': 'kotlinsample.Sepia'
         attributes 'Main-Class': project.mainClassName
     }
-    baseName = project.mainClassName
+    baseName = project.mainClassName.toLowerCase()
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
