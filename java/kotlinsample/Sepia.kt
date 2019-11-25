@@ -6,8 +6,9 @@ import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader
+import org.scijava.nativelib.NativeLoader.*
 
-class Sepia {
+class MySepia {
     companion object {
 
         fun sepiaOne(file: File, outputFolder: File) {
@@ -38,7 +39,7 @@ class Sepia {
             if (args.size == 0)
                 println("Usage: Sepia <file1> <file2> ...")
             else {
-                NativeLoader.loadLibrary(NATIVE_LIBRARY_NAME)
+                loadLibrary(NATIVE_LIBRARY_NAME)
                 val outputFolder = File("sepias")
                 outputFolder.mkdirs()
                 for (file in args) {
@@ -46,5 +47,34 @@ class Sepia {
                 }
             }
         }
+    }
+}
+
+/**
+ * Using a kernel to get sepia picture
+ */
+object Sepia {
+
+    @Throws(Exception::class)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        loadLibrary(NATIVE_LIBRARY_NAME)
+        val filename = "marcel.jpg"
+        // String filename = args[0];
+        val source = imread(filename)
+
+        // mat is in BGR
+        val kernel = Mat(3, 3, CvType.CV_32F)
+        kernel.put(0, 0,
+                // green
+                0.272, 0.534, 0.131,
+                // blue
+                0.349, 0.686, 0.168,
+                // red
+                0.393, 0.769, 0.189)
+        val destination = Mat()
+        transform(source, destination, kernel)
+
+        imwrite("target/sepia2_" + File(filename).name, destination)
     }
 }
