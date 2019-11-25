@@ -18,7 +18,7 @@ object CaffeeDemo {
         val sourceImageFile = "data/caffee/jeunehomme.jpg"
         val tfnetFile = "data/caffee/gender_net.caffemodel"
         val protoFil = "data/caffee/gender.prototxt"
-        val labels = listOf("Male", "Female")
+        val labels = listOf("男", "女")
         sourceImageFile.runCaffeeNetwork(tfnetFile, protoFil, labels)
 
     }
