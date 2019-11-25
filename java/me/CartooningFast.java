@@ -6,6 +6,7 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
+import origami.Origami;
 
 public class CartooningFast {
 
@@ -52,7 +53,7 @@ public class CartooningFast {
     }
 
     void one() {
-        Mat cartoon = cartoon(Utils.grabOne());
+        Mat cartoon = cartoon(Origami.grabOne());
         Imgcodecs.imwrite(String.format("cartoon/cartoon2_%s.png", new java.util.Date().getTime()), cartoon);
         HighGui.imshow("cartoon", cartoon);
         HighGui.waitKey();
@@ -64,7 +65,7 @@ public class CartooningFast {
     }
 
     public static void main(String[] args) {
-        Utils.initCV();
+        Origami.init();
         new CartooningFast();
         System.exit(0);
     }

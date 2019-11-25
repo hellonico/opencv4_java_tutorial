@@ -12,9 +12,10 @@ plugins {
 
 // Define the main class for the application
 // mainClassName = 'HelloCv'
+mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "HelloCv"
 
 task execute(type:JavaExec) {
-   main = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "HelloCv"
+
    classpath = sourceSets.main.runtimeClasspath
    args = project.hasProperty("args") ? project.getProperty("args") : []
 }
@@ -30,7 +31,8 @@ dependencies {
     // }
     // compile 'opencv:opencv:4.0.0-0'
     // compile 'opencv:opencv-native:4.0.0-0'
-    compile('origami:origami:4.1.1-3') 
+    compile 'origami:origami:4.1.1-8'
+
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "org.slf4j:slf4j-nop:1.6.2"
@@ -43,6 +45,9 @@ repositories {
     jcenter()
       maven {
         url "https://repository.hellonico.info/repository/hellonico/"
+    }
+    maven {
+        url "https://clojars.org/repo/"
     }
 }
 compileKotlin {
@@ -57,9 +62,10 @@ compileTestKotlin {
 }
 task customFatJar(type: Jar) {
     manifest {
-        attributes 'Main-Class': 'kotlinsample.Sepia'
+//        attributes 'Main-Class': 'kotlinsample.Sepia'
+        attributes 'Main-Class': project.mainClassName
     }
-    baseName = 'origami-samples'
+    baseName = project.mainClassName
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }

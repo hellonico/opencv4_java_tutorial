@@ -11,12 +11,13 @@ import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import origami.Origami;
 
 public class Cartooning {
 
     public static void main(String[] args) {
-        Utils.initCV();
-        Mat inputImage = args.length > 0 ? Imgcodecs.imread(args[0]) : Utils.grabOne();
+        Origami.init();
+        Mat inputImage = args.length > 0 ? Imgcodecs.imread(args[0]) : Origami.grabOne();
         Mat result = cartoon(inputImage);
         new File("cartoon").mkdirs();
         Imgcodecs.imwrite(String.format("cartoon/cartoon_%s.jpg", new Date().getTime()), result);

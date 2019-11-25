@@ -1,17 +1,15 @@
 package geeksforgeeks;
 
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.scijava.nativelib.NativeLoader;
-
-import java.io.IOException;
-
 import static org.opencv.core.Core.NATIVE_LIBRARY_NAME;
 import static org.opencv.imgcodecs.Imgcodecs.imread;
 import static org.opencv.imgcodecs.Imgcodecs.imwrite;
 import static org.opencv.photo.Photo.INPAINT_NS;
 import static org.opencv.photo.Photo.inpaint;
 import static org.scijava.nativelib.NativeLoader.loadLibrary;
+
+import java.io.IOException;
+
+import org.opencv.core.Mat;
 
 /**
  * https://www.geeksforgeeks.org/introduction-to-opencv/

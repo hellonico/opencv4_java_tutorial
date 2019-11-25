@@ -54,7 +54,7 @@ internal class MyProcessor {
     }
 }
 
-object FaceDetection {
+object WebcamFaceDetection {
 
     @JvmStatic
     fun main(arg: Array<String>) {
