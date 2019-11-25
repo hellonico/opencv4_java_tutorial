@@ -1,0 +1,1 @@
+./gradlew customFatJar -PmainClass=CVApp 

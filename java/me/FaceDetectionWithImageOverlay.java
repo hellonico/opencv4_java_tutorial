@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 import org.scijava.nativelib.NativeLoader;
+import picocli.CommandLine;
 
 class My_Panel extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -84,29 +86,43 @@ class processor {
         for (Rect rect : faces.toArray()) {
             Imgproc.resize(mask, maskResized, new Size(rect.width, rect.height));
             int adjusty = (int) (rect.y - rect.width * adjust);
-            drawTransparency(inputframe, maskResized, rect.x, adjusty);
+            try {
+                drawTransparency(inputframe, maskResized, rect.x, adjusty);
+            } catch(Exception e) {
+
+            }
         }
     }
 }
 
-public class FaceDetectionWithImageOverlay {
+@CommandLine.Command(name = "facedetection", version="1.0.0", mixinStandardHelpOptions = true, description = "Turn a picture into sepia")
+public class FaceDetectionWithImageOverlay implements Callable<Integer> {
 
-    public static void main(String args[]) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+    @CommandLine.Option(names = {"-m", "--mask"}, description = "Overlay mask", required = false)
+    private String _mask = "data/masquerade_mask.png";
+
+    @CommandLine.Option(names = {"-a", "--adjust"}, description = "Overlay mask", required = false)
+    Double adjust = 0.2;
+
+    @CommandLine.Option(names = {"-c", "--camera"}, description = "Camera Id", required = false)
+    Integer camIndex = 0;
+
+    public FaceDetectionWithImageOverlay() {
         Core.setNumThreads(4);
+    }
+
+
+    public Integer call() {
         String window_name = "Capture - Face detection";
         JFrame frame = new JFrame(window_name);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 400);
-        String _mask = args.length > 0 ? args[0] : "data/masquerade_mask.png";
-        double adjust = args.length > 1 ? Double.parseDouble(args[1]) : 0.2;
         processor my_processor = new processor(_mask, adjust);
         My_Panel my_panel = new My_Panel();
         frame.setContentPane(my_panel);
         frame.setVisible(true);
         // -- 2. Read the video stream
         Mat webcam_image = new Mat();
-        int camIndex = args.length > 2 ? Integer.parseInt(args[2]) : 0;
         VideoCapture capture = new VideoCapture(0);
 
         // capture.set(Video., value)
@@ -128,6 +144,11 @@ public class FaceDetectionWithImageOverlay {
                 my_panel.repaint();
             }
         }
-        return;
+        return 0;
+    }
+
+    public static void main(String args[]) throws IOException {
+        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
     }
 }

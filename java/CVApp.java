@@ -12,6 +12,9 @@ public class CVApp {
         loadLibrary(NATIVE_LIBRARY_NAME);
         ArrayList<String> params = new ArrayList<String>(Arrays.asList(args));
         String className = params.remove(0);
+        System.out.println(String.format("Starting App:\t%s", className));
         new CommandLine(Class.forName(className).newInstance()).execute(params.toArray(new String[params.size()]));
+        System.out.println("\ud83d\udc3b");
+        System.exit(0);
     }
 }

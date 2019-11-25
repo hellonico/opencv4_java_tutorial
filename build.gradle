@@ -13,7 +13,7 @@ plugins {
 // Define the main class for the application
 // mainClassName = 'HelloCv'
 mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "HelloCv"
-
+//println(mainClassName)
 task runJ(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
    main = project.mainClassName
