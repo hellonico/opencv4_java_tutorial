@@ -70,7 +70,7 @@ internal class processor// Create a constructor method
             try {
                 drawTransparency(inputframe, maskResized, rect.x, adjusty)
             } catch (e:Exception) {
-                // 
+                //
             }
         }
     }

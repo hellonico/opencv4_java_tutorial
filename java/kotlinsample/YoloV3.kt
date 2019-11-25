@@ -3,30 +3,30 @@ package kotlinsample
 import org.opencv.core.*
 import org.opencv.dnn.Dnn
 import org.opencv.dnn.Net
-import org.opencv.imgcodecs.Imgcodecs
+import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc
-import org.scijava.nativelib.NativeLoader
+import org.scijava.nativelib.NativeLoader.loadLibrary
 import java.io.File
 import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Paths
-import java.util.ArrayList
-import java.util.stream.Collectors
+import java.util.*
 
 object YoloV3Demo {
 
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
-        runDark(arrayOf("data/yolov3/bird.jpg"))
+        loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        val tfnetFile = "data/yolov3/yolov3.weights"
+        val protoFil = "data/yolov3/yolov3.cfg"
+        val input = arrayOf("data/yolov3/bird.jpg")
+        val labels = Files.readAllLines(Paths.get("data/yolov3/coco.names"))
+        runDark(tfnetFile, protoFil,labels, input)
     }
 
     @Throws(IOException::class)
-    private fun runDark(sourceImageFile: Array<String>) {
-        val tfnetFile = "data/yolov3/yolov3.weights"
-        val protoFil = "data/yolov3/yolov3.cfg"
-        val labels = Files.readAllLines(Paths.get("data/yolov3/coco.names"))
+    private fun runDark(tfnetFile:String, protoFil:String, labels:List<String>, sourceImageFile: Array<String>) {
         val net = Dnn.readNetFromDarknet(protoFil, tfnetFile)
         val layers = getOutputsNames(net)
         for (image in sourceImageFile) {
@@ -34,22 +34,17 @@ object YoloV3Demo {
         }
     }
 
-    // Get the names of the output layers
     private fun getOutputsNames(net: Net): List<String> {
         return net.unconnectedOutLayers.toList().map{i -> net.layerNames[i-1] };
     }
 
-    // Given a file from assets, run inference
+    const val IN_WIDTH = 416
+    const val IN_HEIGHT = 416
+    const val IN_SCALE_FACTOR = 0.00392157
+    const val MAX_RESULTS = 20
     private fun runInference(net: Net, layers: List<String>, labels: List<String>, filename: String) {
-        val IN_WIDTH = 416
-        val IN_HEIGHT = 416
-        val IN_SCALE_FACTOR = 0.00392157
-        val MAX_RESULTS = 20
-//        val IN_SCALE_FACTOR = 1
+        val frame = imread(filename, IMREAD_COLOR)
 
-        val frame = Imgcodecs.imread(filename, Imgcodecs.IMREAD_COLOR)
-
-        // Forward image through network.
         val blob = Dnn.blobFromImage(frame, IN_SCALE_FACTOR, Size(IN_WIDTH.toDouble(), IN_HEIGHT.toDouble()), Scalar(0.0, 0.0, 0.0), true)
         net.setInput(blob)
 
@@ -101,9 +96,9 @@ object YoloV3Demo {
                     tmpClasses.add(result.maxLoc.x.toInt())
                     tmpConfidences.add(result.maxVal.toFloat())
                     val box = Rect(left.toInt(), top.toInt(), width.toInt(), height.toInt())
-                    println(">"+result.maxLoc.x+":"+result.maxLoc.y+"<>"+result.maxLoc);
-                    println(box)
-                    println(out.row(j).colRange(0,5).dump())
+//                    println(">"+result.maxLoc.x+":"+result.maxLoc.y+"<>"+result.maxLoc);
+//                    println(box)
+//                    println(out.row(j).colRange(0,5).dump())
                     tmpLocations.add(box)
 
                 }
@@ -112,7 +107,7 @@ object YoloV3Demo {
         }
         println(tmpClasses.size)
         annotateFrame(frame, labels, classIds, confidences, nResults, tmpLocations, tmpClasses, tmpConfidences)
-        Imgcodecs.imwrite("out/" + File(filename).name, frame)
+        imwrite("out/" + File(filename).name, frame)
     }
 
     private fun annotateFrame(frame: Mat, labels: List<String>, classIds: MutableList<Int>, confidences: MutableList<Float>, nResults: Int, tmpLocations: List<Rect>, tmpClasses: List<Int>, tmpConfidences: List<Float>) {
