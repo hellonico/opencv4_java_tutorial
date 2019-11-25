@@ -2,6 +2,8 @@ package kotlinsample
 
 import org.opencv.core.Core
 import org.opencv.core.Mat
+import org.opencv.highgui.HighGui
+import org.opencv.highgui.HighGui.*
 import org.opencv.videoio.VideoCapture
 import org.scijava.nativelib.NativeLoader
 import java.awt.Color
@@ -84,23 +86,6 @@ class OpenCVWebcam : JPanel {
         return img
     }
 
-    fun MatToBufferedImage(frame: Mat): BufferedImage {
-        // Mat() to BufferedImage
-        var type = 0
-        if (frame.channels() == 1) {
-            type = BufferedImage.TYPE_BYTE_GRAY
-        } else if (frame.channels() == 3) {
-            type = BufferedImage.TYPE_3BYTE_BGR
-        }
-        val image = BufferedImage(frame.width(), frame.height(), type)
-        val raster = image.raster
-        val dataBuffer = raster.dataBuffer as DataBufferByte
-        val data = dataBuffer.data
-        frame.get(0, 0, data)
-
-        return image
-    }
-
     companion object {
         init {
             try {
@@ -127,7 +112,7 @@ class OpenCVWebcam : JPanel {
             } else {
                 while (true) {
                     if (camera.read(frame)) {
-                        val image = t.MatToBufferedImage(frame)
+                        val image = toBufferedImage(frame) as BufferedImage
                         t.window(image, "Original Image", 0, 0)
                         t.window(t.grayscale(image), "Processed Image", 40, 60)
                         break

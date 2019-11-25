@@ -26,5 +26,5 @@ public class InPainting {
         inpaint(img, mask, dst, 3, INPAINT_NS);
         imwrite("data/cat_inpainted.png", dst);
     }
-    
+
 }
