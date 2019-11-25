@@ -14,10 +14,10 @@ plugins {
 // mainClassName = 'HelloCv'
 mainClassName = project.hasProperty("mainClass") ? project.getProperty("mainClass") : "HelloCv"
 
-task execute(type:JavaExec) {
-
+task runJ(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
-   args = project.hasProperty("args") ? project.getProperty("args") : []
+   main = project.mainClassName
+   args project.hasProperty("in") ? project.getProperty("in").split() : []
 }
 
 sourceSets {
@@ -32,6 +32,8 @@ dependencies {
     // compile 'opencv:opencv:4.0.0-0'
     // compile 'opencv:opencv-native:4.0.0-0'
     compile 'origami:origami:4.1.1-8'
+    
+    compile 'info.picocli:picocli:4.1.0'
 
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
