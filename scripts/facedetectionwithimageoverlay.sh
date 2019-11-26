@@ -1,0 +1,1 @@
+java -jar build/libs/cvapp.jar me.FaceDetectionWithImageOverlay -m data/transparent-smiley-face-drawing.png -a 0 -c 0
