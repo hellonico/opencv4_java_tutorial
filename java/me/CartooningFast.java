@@ -10,31 +10,31 @@ import origami.Origami;
 
 public class CartooningFast {
 
-    int d = 13;
-    int sigmaColor = d;
-    int sigmaSpace = 7;
-    int ksize = 7;
+        int d = 13;
+        int sigmaColor = d;
+        int sigmaSpace = 7;
+        int ksize = 7;
 
-    double maxValue = 255;
-    int blockSize = 9;
-    int C = 2;
+        double maxValue = 255;
+        int blockSize = 9;
+        int C = 2;
 
-    Mat cartoon(Mat inputFrame) {
-        Mat gray = new Mat();
-        Mat co = new Mat();
-        Mat mOutputFrame = new Mat();
+        Mat cartoon(Mat inputFrame) {
+            Mat gray = new Mat();
+            Mat co = new Mat();
+            Mat mOutputFrame = new Mat();
 
-        Imgproc.cvtColor(inputFrame, co, Imgproc.COLOR_BGR2GRAY);
-        Imgproc.bilateralFilter(co, gray, d, sigmaColor, sigmaSpace);
-        Imgproc.medianBlur(gray, gray, ksize);
-        Imgproc.adaptiveThreshold(gray, gray, maxValue, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY,
-                blockSize, C);
+            Imgproc.cvtColor(inputFrame, co, Imgproc.COLOR_BGR2GRAY);
+            Imgproc.bilateralFilter(co, gray, d, sigmaColor, sigmaSpace);
+            Imgproc.medianBlur(gray, gray, ksize);
+            Imgproc.adaptiveThreshold(gray, gray, maxValue, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY,
+                    blockSize, C);
 
-        Mat m = new Mat();
-        Imgproc.cvtColor(gray, m, Imgproc.COLOR_GRAY2BGR);
-        Core.bitwise_and(inputFrame, m, mOutputFrame);
-        return mOutputFrame;
-    }
+            Mat m = new Mat();
+            Imgproc.cvtColor(gray, m, Imgproc.COLOR_GRAY2BGR);
+            Core.bitwise_and(inputFrame, m, mOutputFrame);
+            return mOutputFrame;
+        }
 
     void capturing() {
         VideoCapture vc = new VideoCapture(0);

@@ -4,7 +4,7 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.60'
     id "gradle-clojure.clojure" version "0.5.0-alpha.1"
     id 'maven-publish'
 
@@ -32,6 +32,7 @@ dependencies {
     // compile 'opencv:opencv:4.0.0-0'
     // compile 'opencv:opencv-native:4.0.0-0'
     compile 'origami:origami:4.1.1-8'
+    implementation 'origami:optimized-image-enhanced:1.0'
     
     compile 'info.picocli:picocli:4.1.0'
 
@@ -64,10 +65,10 @@ compileTestKotlin {
 }
 task customFatJar(type: Jar) {
     manifest {
-//        attributes 'Main-Class': 'kotlinsample.Sepia'
         attributes 'Main-Class': project.mainClassName
     }
     baseName = project.mainClassName.toLowerCase()
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
+

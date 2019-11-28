@@ -1,13 +1,12 @@
 package me;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
-import me.ImShow;
+import static com.isaac.models.ALTMRetinex.enhance;
 
 public class Camera {
     static void cameraSettings(VideoCapture cap) {
@@ -25,23 +24,24 @@ public class Camera {
     }
 
     public static void main(String[] args) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        Core.setNumThreads(4);
+        Origami.init();
+//        Core.setNumThreads(4);
         VideoCapture cap = new VideoCapture(0);
 
         if (!cap.isOpened())
             throw new RuntimeException("error cannot any open camera");
 
-        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 424.0);
-        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240.0);
+//        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 424.0);
+//        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240.0);
         cameraSettings(cap);
         Mat matFrame = new Mat();
-        ImShow ims = new ImShow("Camera", 424, 240);
+        ImShow ims = new ImShow("Camera", 900, 300);
         while (cap.grab()) {
             cap.retrieve(matFrame);
             // ims.showImage(threshing(matFrame));
-            ims.showImage(graying(matFrame));
-            // ims.showImage(matFrame);
+            // ims.showImage(graying(matFrame));
+            ims.showImage(enhance(matFrame, 10, 0.01, 36, 10, 0.01));
+
         }
 
         cap.release();
