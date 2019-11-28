@@ -1,3 +1,5 @@
+package opencvtutorial;
+
 import java.io.IOException;
 
 import org.opencv.core.Core;
@@ -9,7 +11,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.xfeatures2d.SURF;
 import org.scijava.nativelib.NativeLoader;
 
-class SURFDetection {
+class SurfKeyPointsDetection {
     public void run(String[] args) {
         String filename = args.length > 0 ? args[0] : "data/box.png";
         Mat src = Imgcodecs.imread(filename, Imgcodecs.IMREAD_GRAYSCALE);
@@ -38,9 +40,9 @@ class SURFDetection {
     }
 }
 
-public class SurfDemo {
+public class SurfKeyPointsDemo {
     public static void main(String[] args) throws IOException {
         NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        new SURFDetection().run(args);
+        new SurfKeyPointsDetection().run(args);
     }
 }
