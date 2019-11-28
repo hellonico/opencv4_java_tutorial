@@ -21,7 +21,7 @@ task runJ(type:JavaExec) {
 }
 
 sourceSets {
-        main.java.srcDirs = ['java','clj']
+        main.java.srcDirs = ['java','clj','kotlin']
         main.resources.srcDirs = ['resources']
 }
 
