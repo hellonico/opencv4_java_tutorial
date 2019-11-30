@@ -205,7 +205,7 @@ public class ThresholdInRange {
         pane.add(sliderPanel, BorderLayout.PAGE_START);
         JPanel framePanel = new JPanel();
         imgCaptureLabel = new JLabel(new ImageIcon(img));
-        framePanel.add(imgCaptureLabel);
+//        framePanel.add(imgCaptureLabel);
         imgDetectionLabel = new JLabel(new ImageIcon(img));
         framePanel.add(imgDetectionLabel);
         pane.add(framePanel, BorderLayout.CENTER);
