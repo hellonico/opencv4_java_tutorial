@@ -1,14 +1,19 @@
 package me;
 
+import me.filters.Cartoon;
+import me.filters.Filter;
+import me.filters.LUTCartoon;
+import me.filters.Vintage;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 import origami.Origami;
 
-import static com.isaac.models.ALTMRetinex.enhance;
-
 public class Camera {
+    private static String myFilter= "me.filters.Thresh";
+
     static void cameraSettings(VideoCapture cap) {
         String settings = String.format(
                 "Name:\t\t%s\nWidth:\t\t%s\nHeight:\t\t%s\nFPS:\t\t%s\nAperture:\t%s\nAutofocus:\t%s\nGain:\t\t%s\nGamma:\t\t%s\nBrightness:\t%s\nBackend:\t%s\nBacklight:\t%s\nContrast:\t%s\nSaturation:\t%s\nSharpness:\t%s\nZoom:\t\t%s\nBuffersize:\t%s\n",
@@ -25,38 +30,30 @@ public class Camera {
 
     public static void main(String[] args) throws Exception {
         Origami.init();
-//        Core.setNumThreads(4);
+        Core.setNumThreads(4);
+
         VideoCapture cap = new VideoCapture(0);
 
         if (!cap.isOpened())
             throw new RuntimeException("error cannot any open camera");
 
-//        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 424.0);
-//        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240.0);
+        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 424.0);
+        cap.set(Videoio.CAP_PROP_FRAME_HEIGHT, 240.0);
         cameraSettings(cap);
         Mat matFrame = new Mat();
-        ImShow ims = new ImShow("Camera", 900, 300);
+        ImShow ims = new ImShow("Camera", 800, 600);
+        Filter cf = (Filter) Class.forName(myFilter).newInstance();
         while (cap.grab()) {
             cap.retrieve(matFrame);
-            // ims.showImage(threshing(matFrame));
-            // ims.showImage(graying(matFrame));
-            ims.showImage(enhance(matFrame, 10, 0.01, 36, 10, 0.01));
+//            ims.showImage(threshing(matFrame));
+//             ims.showImage(graying(matFrame));
+            // ims.showImage(enhance(matFrame, 10, 0.01, 36, 10, 0.01));
+//            ims.showImage(cf.apply(matFrame));
+            ims.showImage(cf.apply(matFrame));
 
         }
 
         cap.release();
     }
 
-    public static Mat graying(Mat img) {
-        Mat mat1 = new Mat();
-        Imgproc.cvtColor(img, mat1, Imgproc.COLOR_RGB2GRAY);
-        return mat1;
-    }
-
-    public static Mat threshing(Mat img) {
-        Mat threshed = new Mat();
-        int SENSITIVITY_VALUE = 100;
-        Imgproc.threshold(img, threshed, SENSITIVITY_VALUE, 255, Imgproc.THRESH_BINARY);
-        return threshed;
-    }
 }

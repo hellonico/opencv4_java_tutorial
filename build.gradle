@@ -26,12 +26,12 @@ sourceSets {
 }
 
 dependencies {
-    // compile('origami:origami:4.1.1-1') {
+    // compile('origami:origami:4.1.2') {
     //     exclude group: 'opencv'
     // }
     // compile 'opencv:opencv:4.0.0-0'
-    // compile 'opencv:opencv-native:4.0.0-0'
-    compile 'origami:origami:4.1.1-8'
+//    compile 'opencv:opencv-native:4.1.2-0'
+    compile 'origami:origami:4.1.2'
     implementation 'origami:optimized-image-enhanced:1.0'
     
     compile 'info.picocli:picocli:4.1.0'

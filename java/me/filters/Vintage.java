@@ -1,4 +1,4 @@
-package me;
+package me.filters;
 
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -13,7 +13,7 @@ import static org.opencv.imgcodecs.Imgcodecs.imread;
 import static org.opencv.imgcodecs.Imgcodecs.imwrite;
 import static org.opencv.imgproc.Imgproc.getGaussianKernel;
 
-public class VintageFilter {
+public class Vintage implements Filter {
     private final int sigma;
 
     public static void main(String... args) {
@@ -23,15 +23,15 @@ public class VintageFilter {
          */
 
         Mat marcel = imread("data/marcel.jpg");
-        VintageFilter filter = new VintageFilter();
+        Vintage filter = new Vintage();
         imwrite("vintage.jpeg", filter.apply(marcel));
     }
 
-    public VintageFilter(int sigma) {
+    public Vintage(int sigma) {
         this.sigma = sigma;
     }
 
-    public VintageFilter() {
+    public Vintage() {
         this(200);
     }
 
@@ -50,6 +50,7 @@ public class VintageFilter {
         for (Mat c : channels) {
             c.convertTo(c, CvType.CV_64F);
             multiply(c, filter, c);
+            c.convertTo(c, CvType.CV_8UC1);
         }
         merge(channels, vintage);
         return vintage;

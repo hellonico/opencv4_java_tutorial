@@ -1,14 +1,10 @@
-package me;
+package me.filters;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.concurrent.Callable;
 
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.scijava.nativelib.NativeLoader;
 import picocli.CommandLine;
 
 import static org.opencv.core.Core.*;
@@ -19,7 +15,7 @@ import static org.scijava.nativelib.NativeLoader.*;
  * Using a kernel to get sepia picture
  */
 @CommandLine.Command(name = "sepia", version="1.0.0", mixinStandardHelpOptions = true, description = "Turn a picture into sepia")
-public class Sepia implements Callable<Integer> {
+public class Sepia implements Callable<Integer>,Filter {
 
     @CommandLine.Option(names = {"-i", "--input"}, description = "Input Image", required = true)
     private String filename = "marcel.jpg";
@@ -27,9 +23,7 @@ public class Sepia implements Callable<Integer> {
     @CommandLine.Option(names = {"-o", "--output"}, description = "Output Folder", required = false)
     private File output = new File("out");
 
-    public Integer call() {
-        Mat source = imread(filename);
-
+    public Mat apply(Mat source) {
         // mat is in BGR
         Mat kernel = new Mat(3, 3, CvType.CV_32F);
         kernel.put(0, 0,
@@ -41,7 +35,12 @@ public class Sepia implements Callable<Integer> {
                 0.393, 0.769, 0.189);
         Mat destination = new Mat();
         transform(source, destination, kernel);
+        return destination;
+    }
 
+    public Integer call() {
+        Mat source = imread(filename);
+        Mat destination = apply(source);
         output.mkdirs();
         imwrite(output.getAbsolutePath()+"/sepia_" + new File(filename).getName(), destination);
         return 0;
