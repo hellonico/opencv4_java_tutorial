@@ -1,21 +1,17 @@
 package me;
 
-import imagecomparison.CV;
-import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
-import org.opencv.imgproc.Imgproc;
 import origami.Origami;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.*;
 import static org.opencv.core.Core.*;
 import static org.opencv.imgcodecs.Imgcodecs.imread;
 import static org.opencv.imgcodecs.Imgcodecs.imwrite;
-import static org.opencv.imgproc.Imgproc.*;
+import static org.opencv.imgproc.Imgproc.getGaussianKernel;
 
 public class VintageFilter {
     private final int sigma;
