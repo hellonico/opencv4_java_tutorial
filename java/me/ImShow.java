@@ -44,7 +44,7 @@ public class ImShow {
         setCloseOption(0);
     }
 
-    public ImShow(String title, int height, int width) {
+    public ImShow(String title, int width, int height) {
         SizeCustom = true;
         Height = height;
         Width = width;
@@ -62,7 +62,7 @@ public class ImShow {
 
     public void showImage(Mat img) {
         if (SizeCustom) {
-            Imgproc.resize(img, img, new Size(Height, Width));
+            Imgproc.resize(img, img, new Size(Width, Height));
         }
         BufferedImage bufImage = null;
         try {
