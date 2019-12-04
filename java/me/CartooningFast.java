@@ -23,7 +23,7 @@ public class CartooningFast {
         while (key == -1) {
                 vc.read(image);
                 HighGui.imshow("cartoon", cf.apply(image));
-                key = HighGui.waitKey(300);
+                key = HighGui.waitKey(30);
         }
         Imgcodecs.imwrite(String.format("cartoon/cartoon2_%s.png", new java.util.Date().getTime()), cf.apply(image));
     }
