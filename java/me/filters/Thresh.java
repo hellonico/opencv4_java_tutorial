@@ -6,6 +6,7 @@ import org.opencv.imgproc.Imgproc;
 public class Thresh implements Filter{
 
     int sensitivity = 100;
+    int maxVal = 255;
     public Thresh() {
 
     }
@@ -15,7 +16,7 @@ public class Thresh implements Filter{
 
     public Mat apply(Mat img) {
         Mat threshed = new Mat();
-        Imgproc.threshold(img, threshed, sensitivity, 255, Imgproc.THRESH_BINARY);
+        Imgproc.threshold(img, threshed, sensitivity, maxVal, Imgproc.THRESH_BINARY);
         return threshed;
     }
 }

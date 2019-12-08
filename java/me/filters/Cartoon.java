@@ -9,14 +9,14 @@ import static org.opencv.imgproc.Imgproc.*;
 
 public class Cartoon implements Filter {
 
-    int d = 13;
-    int sigmaColor = d;
-    int sigmaSpace = 7;
-    int ksize = 7;
+    public int d = 13;
+    public int sigmaColor = d;
+    public int sigmaSpace = 7;
+    public int ksize = 7;
 
-    double maxValue = 255;
-    int blockSize = 9;
-    int C = 2;
+    public double maxValue = 255;
+    public int blockSize = 9;
+    public int C = 2;
 
     public Cartoon(int d, int sigmaColor, int sigmaSpace, int ksize, double maxValue, int blockSize, int c) {
         this.d = d;

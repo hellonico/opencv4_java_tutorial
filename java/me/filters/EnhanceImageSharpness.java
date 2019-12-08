@@ -6,9 +6,9 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 public class EnhanceImageSharpness implements Filter {
-    double alpha = 1.5;
-    double beta = -0.5;
-    double gamma = 0;
+    public double alpha = 1.5;
+    public double beta = -0.5;
+    public double gamma = 0;
 
     public Mat apply(Mat source) {
         Mat destination = new Mat(source.rows(), source.cols(), source.type());

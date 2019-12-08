@@ -12,7 +12,7 @@ import java.util.List;
 import static org.opencv.core.Core.*;
 import static org.opencv.imgproc.Imgproc.*;
 
-public class LUTCartoon implements Filter{
+public class LUTCartoon implements Filter {
 
     static Mat createLUT(int numColors) {
         // When numColors=1 the LUT will only have 1 color which is black.
@@ -36,7 +36,7 @@ public class LUTCartoon implements Filter{
         return lookupTable;
     }
 
-    public static Mat   reduceColors(Mat img, int numRed, int numGreen, int numBlue) {
+    public static Mat reduceColors(Mat img, int numRed, int numGreen, int numBlue) {
         Mat redLUT = createLUT(numRed);
         Mat greenLUT = createLUT(numGreen);
         Mat blueLUT = createLUT(numBlue);
@@ -53,11 +53,16 @@ public class LUTCartoon implements Filter{
         return img;
     }
 
+    public int reducedRed = 80;
+    public int reducedGreen = 80;
+    public int reducedBlue = 80;
+    public int medianBlur = 15;
+
     public Mat apply(Mat img1) {
-        Mat reducedColorImage = reduceColors(img1, 80, 80, 80);
+        Mat reducedColorImage = reduceColors(img1, reducedRed, reducedGreen, reducedBlue);
         Mat result = new Mat();
         cvtColor(img1, result, Imgproc.COLOR_BGR2GRAY);
-        medianBlur(result, result, 15);
+        medianBlur(result, result, medianBlur);
         adaptiveThreshold(result, result, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, 2);
         cvtColor(result, result, Imgproc.COLOR_GRAY2BGR);
         bitwise_and(reducedColorImage, result, result);
