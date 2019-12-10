@@ -29,11 +29,6 @@ public class HueSaturationValue {
         imwrite("gotham.jpg", new Gotham().apply(marcel.clone()));
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> pink
     public static class Pink implements Filter {
 
         @Override
