@@ -26,32 +26,6 @@ public class ColorFilter implements Filter{
      * divided by 2
      * https://stackoverflow.com/questions/17878254/opencv-python-cant-detect-blue-objects
      */
-    public static void main(String... args) {
-        Origami.init();
-
-        onImage("data/geeksforgeeks/screenshot-3091-300x238.png");
-        onVideo();
-    }
-
-    private static void onVideo() {
-        ColorFilter cf = new ColorFilter(COLOR.RED);
-        VideoCapture cap = new VideoCapture(0);
-        Mat buffer = new Mat();
-        while (cap.read(buffer)) {
-            Mat blue = cf.apply(buffer);
-            HighGui.imshow("Filter", blue);
-            int key = HighGui.waitKey(1);
-            if (key != -1) System.out.println(key);
-        }
-        cap.release();
-    }
-
-    private static void onImage(String path) {
-        Mat frame = imread(path);
-        ColorFilter cf = new ColorFilter(COLOR.BLUE);
-        Mat result = cf.apply(frame);
-        imwrite("target/filtered.jpg", result);
-    }
 
     public ColorFilter(COLOR c) {
         switch (c) {

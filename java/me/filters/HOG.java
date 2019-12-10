@@ -15,8 +15,6 @@ public class HOG implements Filter{
         _HOG.setSVMDetector(HOGDescriptor.getDefaultPeopleDetector());
     }
 
-
-
     @Override
     public Mat apply(Mat matFrame) {
         Mat grey = new Mat();

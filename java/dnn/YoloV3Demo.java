@@ -21,12 +21,13 @@ import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+
+import origami.Origami;
 
 public class YoloV3Demo {
 
     public static void main(String[] args) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         runDark(new String[] { "data/yolov3/catwalk.jpg", "data/yolov3/bird.jpg" });
     }
 

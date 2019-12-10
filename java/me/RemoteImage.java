@@ -1,5 +1,7 @@
 package me;
 
+import me.filters.Filter;
+import me.filters.Vintage;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import origami.Origami;
@@ -11,8 +13,10 @@ public class RemoteImage {
 
     public static void main(String[] args) throws Exception {
         Origami.init();
-        Mat mat = Origami.urlToMat(args[0], Imgcodecs.IMREAD_UNCHANGED);
-        imshow("url", mat);
+        String url = "https://raw.githubusercontent.com/hellonico/opencv4_java_tutorial/master/data/marcel2019.jpg";
+        Mat mat = Origami.urlToMat(args!=null?url:args[0], Imgcodecs.IMREAD_UNCHANGED);
+        Filter f = new Vintage();
+        imshow("url", f.apply(mat));
         waitKey();
     }
 }
