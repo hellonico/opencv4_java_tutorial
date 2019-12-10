@@ -22,7 +22,8 @@ public class Camera {
         Mat matFrame = new Mat();
         ImShow ims = new ImShow("Camera", 800, 300);
 
-        Filter cf = new Filters(me.HueSaturationValue.Nashville.class, FPS.class);
+//        Filter cf = new Filters(me.HueSaturationValue.Nashville.class, FPS.class);
+        Filter cf = new Filters(HueSaturationValue.Pink.class, FPS.class);
 
         while (cap.grab()) {
             cap.retrieve(matFrame);

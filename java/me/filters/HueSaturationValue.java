@@ -1,4 +1,4 @@
-package me;
+package me.filters;
 
 import me.filters.Filter;
 import org.opencv.core.Mat;
@@ -27,6 +27,15 @@ public class HueSaturationValue {
         imwrite("lomo.jpg", new Lomo().apply(marcel.clone()));
         imwrite("nashville.jpg", new Nashville().apply(marcel.clone()));
         imwrite("gotham.jpg", new Gotham().apply(marcel.clone()));
+    }
+
+    public static class Pink implements Filter {
+
+        @Override
+        public Mat apply(Mat in) {
+            filter(in, COLOR_BGR2HSV, COLOR_HSV2BGR, 0.2, 1.0, 1.0);
+            return in;
+        }
     }
 
     public static class Nashville implements Filter {
