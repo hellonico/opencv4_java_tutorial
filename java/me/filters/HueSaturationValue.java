@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package me;
-=======
 package me.filters;
->>>>>>> master
 
 import me.filters.Filter;
 import org.opencv.core.Mat;
@@ -34,7 +30,10 @@ public class HueSaturationValue {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> pink
     public static class Pink implements Filter {
 
         @Override
@@ -44,7 +43,6 @@ public class HueSaturationValue {
         }
     }
 
->>>>>>> master
     public static class Nashville implements Filter {
         @Override
         public Mat apply(Mat marcel) {
