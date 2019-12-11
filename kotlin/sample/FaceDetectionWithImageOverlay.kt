@@ -1,4 +1,4 @@
-package kotlinsample
+package sample
 
 import java.awt.Graphics
 import java.awt.image.BufferedImage
@@ -14,7 +14,6 @@ import org.opencv.core.MatOfRect
 import org.opencv.core.Size
 import org.opencv.highgui.HighGui
 import org.opencv.imgcodecs.Imgcodecs
-import org.opencv.imgproc.Imgproc
 import org.opencv.imgproc.Imgproc.*
 import org.opencv.objdetect.CascadeClassifier
 import org.opencv.videoio.VideoCapture

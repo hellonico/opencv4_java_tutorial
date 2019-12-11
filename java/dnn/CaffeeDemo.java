@@ -5,14 +5,16 @@ import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class CaffeeDemo {
 
     public static void main(String[] args) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         String sourceImageFile = "data/caffee/jeunehomme.jpg";
         ageDemo(sourceImageFile);
@@ -39,6 +41,7 @@ public class CaffeeDemo {
         runCaffeeNetwork(sourceImageFile, tfnetFile, protoFil, labels);
     }
 
+
     private static void runCaffeeNetwork(String sourceImageFile, String tfnetFile, String protoFil,
             List<String> labels) {
         Net net = Dnn.readNetFromCaffe(protoFil, tfnetFile);
@@ -50,6 +53,7 @@ public class CaffeeDemo {
         Mat inputBlob = Dnn.blobFromImage(image, 1.0, new Size(256, 256));
         net.setInput(inputBlob);
         net.setPreferableBackend(Dnn.DNN_BACKEND_OPENCV);
+
         Mat result = net.forward();
         result = result.reshape(1, 1);
 

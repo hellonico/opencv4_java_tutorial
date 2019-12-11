@@ -1,10 +1,9 @@
-package kotlinsample
+package sample
 
 
 import org.opencv.core.Core.*
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
-import org.scijava.nativelib.NativeLoader
 import org.scijava.nativelib.NativeLoader.*
 
 import java.io.IOException

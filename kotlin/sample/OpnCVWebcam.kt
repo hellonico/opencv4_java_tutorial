@@ -1,4 +1,4 @@
-package kotlinsample
+package sample
 
 import org.opencv.core.Mat
 import org.opencv.highgui.HighGui.*

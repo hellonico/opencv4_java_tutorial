@@ -20,6 +20,9 @@ public class Filters implements Filter {
         }).collect(Collectors.toList());
     }
 
+    public Filters(Filter... __filters) {
+        this.filters = (List) Arrays.asList(__filters);
+    }
     @Override
     public Mat apply(Mat in) {
         Mat dst = in.clone();

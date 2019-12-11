@@ -2,6 +2,7 @@
 (:require
   [clojure.pprint :refer [pprint]]
   [opencv4.utils :as u]
+  [opencv4.dnn :refer :all]
   [opencv4.core :refer :all]))
 
 (def net (read-net-from-caffe "data/dnn/rt/deploy.prototxt" "data/dnn/rt/mobilenet_iter_73000.caffemodel"))

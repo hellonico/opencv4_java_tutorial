@@ -2,6 +2,7 @@
     (:require
       [clojure.pprint :refer [pprint]]
       [opencv4.utils :as u]
+      [opencv4.dnn :refer :all]
       [opencv4.core :refer :all]))
 
 (defn run-image-on-network[sourceImageFile tffile]

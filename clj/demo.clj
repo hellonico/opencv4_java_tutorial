@@ -16,7 +16,7 @@
   (dnn/read-net-from-darknet "data/yolov3/yolov3.cfg" "data/yolov3/yolov3.weights"))
 (def labels
   (line-seq (clojure.java.io/reader "data/yolov3/coco.names")))
-
+(System/getProperty "user.path")
 (time
   (-> "data/yolov3/catwalk.jpg"
       (imread)

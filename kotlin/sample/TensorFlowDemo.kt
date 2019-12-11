@@ -1,9 +1,7 @@
-package kotlinsample
+package sample
 
 import org.opencv.core.*
-import org.opencv.dnn.Dnn
 import org.opencv.dnn.Dnn.*
-import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader
 

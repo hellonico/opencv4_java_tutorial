@@ -1,4 +1,4 @@
-package kotlinsample
+package sample
 
 import org.opencv.core.*
 import java.awt.Dimension

@@ -1,4 +1,4 @@
-package kotlinsample
+package sample
 
 import org.opencv.core.Core.NATIVE_LIBRARY_NAME
 import org.opencv.core.Core.minMaxLoc
