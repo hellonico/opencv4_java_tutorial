@@ -166,9 +166,13 @@
     <dependency>
       <groupId>origami</groupId>
       <artifactId>origami</artifactId>
-      <version>4.1.2-3</version>
+      <version>4.1.2-4</version>
     </dependency>
-
+<!--    <dependency>-->
+<!--      <groupId>origami-dnn</groupId>-->
+<!--      <artifactId>origami-dnn</artifactId>-->
+<!--      <version>0.1.7-SNAPSHOT</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
