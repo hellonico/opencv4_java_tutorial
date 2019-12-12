@@ -11,22 +11,19 @@ package tobybreckon;
  * Check Example for usage with Webcam Live Video Feed
  */
 
-import java.awt.Dimension;
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
 //import java.io.ByteArrayInputStream;
 //import java.io.InputStream;
 //import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 //import javax.swing.plaf.ButtonUI;
-import javax.swing.WindowConstants;
-
-import org.opencv.core.Mat;
-import org.opencv.core.Size;
-import org.opencv.imgproc.Imgproc;
 
 public class Imshow {
 

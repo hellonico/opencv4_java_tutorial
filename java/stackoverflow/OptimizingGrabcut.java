@@ -1,4 +1,4 @@
-package StackOverFlow;
+package stackoverflow;
 
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;

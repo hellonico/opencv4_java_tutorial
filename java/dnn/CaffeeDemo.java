@@ -1,13 +1,13 @@
 package dnn;
 
-import org.opencv.core.*;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.scijava.nativelib.NativeLoader;
 import origami.Origami;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

@@ -1,18 +1,15 @@
 package kangyueluo777;
 
 
-import org.opencv.core.Core;
-        import org.opencv.core.Mat;
-        import org.opencv.core.TermCriteria;
-        import org.opencv.imgcodecs.Imgcodecs;
-        import org.opencv.imgproc.Imgproc;
+import org.opencv.core.Mat;
+import org.opencv.core.TermCriteria;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 import origami.Origami;
 
 import javax.swing.*;
-        import javax.swing.event.ChangeEvent;
-        import javax.swing.event.ChangeListener;
-        import java.awt.*;
-        import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 import static origami.Origami.matToBufferedImage;
 

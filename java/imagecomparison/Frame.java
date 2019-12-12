@@ -1,28 +1,17 @@
 package imagecomparison;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import org.opencv.core.Core;
+import org.scijava.nativelib.NativeLoader;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.TitledBorder;
-
-import org.opencv.core.Core;
-import org.scijava.nativelib.NativeLoader;
 
 public class Frame {
 

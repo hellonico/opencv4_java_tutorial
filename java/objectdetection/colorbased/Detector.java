@@ -1,20 +1,15 @@
 package objectdetection.colorbased;
 
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.scijava.nativelib.NativeLoader;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Detector {
 

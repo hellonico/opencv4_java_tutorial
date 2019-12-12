@@ -1,8 +1,8 @@
 package me;
 
-import me.filters.HueSaturationValue;
 import org.opencv.core.Mat;
 import origami.Origami;
+import origami.filters.HueSaturationValue;
 
 import static org.opencv.imgcodecs.Imgcodecs.imread;
 import static org.opencv.imgcodecs.Imgcodecs.imwrite;

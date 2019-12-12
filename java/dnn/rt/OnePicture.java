@@ -1,14 +1,14 @@
 package dnn.rt;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.scijava.nativelib.NativeLoader;
+
+import java.io.IOException;
+import java.util.List;
 
 public class OnePicture {
     private static String label(DnnObject obj) {

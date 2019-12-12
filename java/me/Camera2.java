@@ -1,10 +1,9 @@
 package me;
 
-import java.util.function.Function;
-
 import org.opencv.core.Mat;
-
 import origami.Camera;
+
+import java.util.function.Function;
 
 public class Camera2 extends Camera {
 

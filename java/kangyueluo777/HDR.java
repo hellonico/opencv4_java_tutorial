@@ -5,7 +5,6 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.photo.*;
-import org.opencv.xphoto.TonemapDurand;
 import origami.Origami;
 
 import java.util.ArrayList;

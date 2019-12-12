@@ -1,18 +1,12 @@
 package me;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import me.filters.LUTCartoon;
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 import origami.Origami;
+import origami.filters.LUTCartoon;
+
+import java.io.File;
+import java.util.Date;
 
 public class Cartooning {
 

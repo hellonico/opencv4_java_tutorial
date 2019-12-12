@@ -1,7 +1,6 @@
 package kangyueluo777;
 
 
-import org.opencv.core.Point;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.Video;
@@ -9,7 +8,6 @@ import org.opencv.videoio.VideoCapture;
 import origami.Origami;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 
 

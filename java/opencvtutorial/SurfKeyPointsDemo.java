@@ -1,7 +1,5 @@
 package opencvtutorial;
 
-import java.io.IOException;
-
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfKeyPoint;
@@ -10,6 +8,8 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.xfeatures2d.SURF;
 import org.scijava.nativelib.NativeLoader;
+
+import java.io.IOException;
 
 class SurfKeyPointsDetection {
     public void run(String[] args) {

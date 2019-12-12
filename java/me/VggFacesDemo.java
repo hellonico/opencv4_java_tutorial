@@ -3,7 +3,6 @@ package me;
 import org.opencv.core.*;
 import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
-import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import origami.ImShow;
 import origami.Origami;
@@ -11,7 +10,6 @@ import origami.Origami;
 import java.io.File;
 import java.util.List;
 
-import static java.nio.file.Files.readAllLines;
 import static org.opencv.dnn.Dnn.blobFromImage;
 import static org.opencv.imgcodecs.Imgcodecs.imread;
 

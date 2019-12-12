@@ -1,17 +1,17 @@
 package subh123;
 
 import org.opencv.core.*;
-import org.opencv.dnn.*;
-import org.opencv.utils.*;
+import org.opencv.dnn.Dnn;
+import org.opencv.dnn.Net;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.utils.Converters;
 import org.opencv.videoio.VideoCapture;
 import org.scijava.nativelib.NativeLoader;
 import origami.Origami;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class Yolo {
 

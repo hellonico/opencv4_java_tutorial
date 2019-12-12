@@ -1,29 +1,18 @@
 package opencvtutorial;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Image;
-import java.util.Random;
-
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import org.opencv.core.Core;
-import org.opencv.core.Core.MinMaxLocResult;
-import org.opencv.core.CvType;
-import org.opencv.core.Mat;
+import org.opencv.core.*;
 import org.opencv.core.Point;
-import org.opencv.core.Scalar;
+import org.opencv.core.Core.MinMaxLocResult;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import origami.Origami;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.util.Random;
 
 class CornerDetector {
     private Mat src = new Mat();

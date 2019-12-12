@@ -1,14 +1,15 @@
 package imagecomparison;
 
+import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfFloat;
 import org.opencv.core.MatOfInt;
-import org.opencv.core.CvType;
 import org.opencv.imgproc.Imgproc;
+
+import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.util.Arrays;
-import javax.swing.JDialog;
 
 public class CV {
 	public void compare_image(BufferedImage img_1, BufferedImage img_2) {

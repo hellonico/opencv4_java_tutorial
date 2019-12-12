@@ -1,22 +1,6 @@
 package opencvtutorial;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.opencv.core.Core;
-import org.opencv.core.CvType;
-import org.opencv.core.DMatch;
-import org.opencv.core.KeyPoint;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfDMatch;
-import org.opencv.core.MatOfKeyPoint;
-import org.opencv.core.Scalar;
+import org.opencv.core.*;
 import org.opencv.features2d.AKAZE;
 import org.opencv.features2d.DescriptorMatcher;
 import org.opencv.features2d.Features2d;
@@ -25,6 +9,14 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.scijava.nativelib.NativeLoader;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 class AKAZEMatch {
     static {

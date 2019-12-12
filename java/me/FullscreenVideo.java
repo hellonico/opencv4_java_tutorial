@@ -1,13 +1,5 @@
 package me;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.util.concurrent.Callable;
-
-import javax.swing.JFrame;
-
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
@@ -15,9 +7,14 @@ import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
 import org.scijava.nativelib.NativeLoader;
-
 import origami.Origami;
 import picocli.CommandLine;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.concurrent.Callable;
 
 @CommandLine.Command(name = "fullscreenvideo", version="1.0.0", mixinStandardHelpOptions = true, description = "Play A video fullscreen")
 public class FullscreenVideo extends JFrame implements Callable<Integer> {

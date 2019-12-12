@@ -1,11 +1,11 @@
 package me;
 
-import me.filters.Cartoon;
 import org.opencv.core.Mat;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 import origami.Origami;
+import origami.filters.Cartoon;
 
 import javax.swing.*;
 

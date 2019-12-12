@@ -1,9 +1,10 @@
 package objectdetection.colorbased;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
 import org.opencv.core.Mat;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
 class Panel extends JPanel {
 	private static final long serialVersionUID = 1L;

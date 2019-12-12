@@ -168,6 +168,11 @@
       <artifactId>origami</artifactId>
       <version>4.1.2-4</version>
     </dependency>
+    <dependency>
+      <groupId>origami</groupId>
+      <artifactId>filters</artifactId>
+      <version>1.0</version>
+    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>origami-dnn</groupId>-->
 <!--      <artifactId>origami-dnn</artifactId>-->

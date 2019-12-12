@@ -1,14 +1,13 @@
 package me;
 
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.scijava.nativelib.NativeLoader;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.highgui.HighGui;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.scijava.nativelib.NativeLoader;
 
 public class DrawTransparent {
 

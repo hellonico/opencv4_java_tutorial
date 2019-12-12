@@ -1,11 +1,5 @@
 package opencvtutorial;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -14,9 +8,15 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.photo.CalibrateDebevec;
 import org.opencv.photo.MergeDebevec;
 import org.opencv.photo.MergeMertens;
-import org.opencv.xphoto.Xphoto;
 import org.opencv.photo.Photo;
 import org.opencv.xphoto.TonemapDurand;
+import org.opencv.xphoto.Xphoto;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 class HDRImaging {
     public void loadExposureSeq(String path, List<Mat> images, List<Float> times) {

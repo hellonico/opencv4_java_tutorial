@@ -6,26 +6,19 @@ package webcam;
  * Display a circle around the faces using Java
  * https://udallascs.wordpress.com/2014/04/01/face-detection-with-a-webcam-using-only-opencv-with-java-and-not-javacv/
  */
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfRect;
 import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
 import org.scijava.nativelib.NativeLoader;
-
 import origami.Origami;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 class My_Panel extends JPanel {
     private static final long serialVersionUID = 1L;

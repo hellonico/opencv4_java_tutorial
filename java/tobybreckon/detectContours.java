@@ -13,19 +13,15 @@ package tobybreckon;
 
 // import required Java components
 
+import org.opencv.core.*;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
+import org.scijava.nativelib.NativeLoader;
+
 import java.util.List;
 import java.util.Vector;
 
 //import required OpenCV components
-
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
-import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
 
 // ********************************************************
 

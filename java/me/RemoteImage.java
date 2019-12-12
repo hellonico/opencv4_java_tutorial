@@ -1,11 +1,11 @@
 package me;
 
-import origami.Filter;
-import me.filters.Vintage;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
-import origami.Origami;
 import origami.Filter;
+import origami.Origami;
+import origami.filters.Vintage;
+
 import static org.opencv.highgui.HighGui.imshow;
 import static org.opencv.highgui.HighGui.waitKey;
 

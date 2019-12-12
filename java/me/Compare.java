@@ -1,8 +1,8 @@
 package me;
 
-import origami.Filter;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import origami.Filter;
 
 import java.util.Arrays;
 import java.util.List;
