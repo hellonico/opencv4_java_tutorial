@@ -1,6 +1,7 @@
 package me.filters;
 
 import org.opencv.core.Mat;
+import origami.Filter;
 
 import static org.opencv.photo.Photo.*;
 

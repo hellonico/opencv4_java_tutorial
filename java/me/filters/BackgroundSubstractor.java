@@ -4,7 +4,7 @@ import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.video.BackgroundSubtractor;
 import org.opencv.video.Video;
-
+import origami.Filter;
 import static org.opencv.imgproc.Imgproc.COLOR_GRAY2RGB;
 
 public class BackgroundSubstractor implements Filter {
@@ -26,9 +26,9 @@ public class BackgroundSubstractor implements Filter {
         Mat mask = new Mat();
         backSub.apply(in, mask);
         Mat result = new Mat();
-        if(showMask) {
-        Imgproc.cvtColor(result,result,COLOR_GRAY2RGB);
-        return result;
+        if (showMask) {
+            Imgproc.cvtColor(result, result, COLOR_GRAY2RGB);
+            return result;
         } else {
             in.copyTo(result, mask);
             return result;

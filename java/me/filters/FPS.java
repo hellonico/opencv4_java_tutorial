@@ -3,7 +3,7 @@ package me.filters;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
-
+import origami.Filter;
 import static org.opencv.imgproc.Imgproc.FONT_HERSHEY_PLAIN;
 import static org.opencv.imgproc.Imgproc.putText;
 
@@ -21,7 +21,7 @@ public class FPS implements Filter {
     @Override
     public Mat apply(Mat in) {
         count++;
-        String text = "FPS: "+count / (1 + ((System.currentTimeMillis()-start) / 1000));
+        String text = "FPS: " + count / (1 + ((System.currentTimeMillis() - start) / 1000));
         putText(in, text, org, fontFace, fontScale, color, thickness);
         return in;
     }

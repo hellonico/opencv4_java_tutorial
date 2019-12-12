@@ -1,6 +1,6 @@
 package me.filters.android;
 
-import me.filters.Filter;
+import origami.Filter;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;

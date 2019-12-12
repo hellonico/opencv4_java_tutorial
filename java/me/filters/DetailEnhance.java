@@ -3,6 +3,7 @@ package me.filters;
 import org.opencv.core.Mat;
 
 import static org.opencv.photo.Photo.detailEnhance;
+import origami.Filter;
 
 public class DetailEnhance implements Filter {
     float sigma_s = 10;

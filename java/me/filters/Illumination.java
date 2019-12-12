@@ -4,6 +4,7 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import static org.opencv.photo.Photo.illuminationChange;
+import origami.Filter;
 
 public class Illumination implements Filter {
     public float alpha = 3f;

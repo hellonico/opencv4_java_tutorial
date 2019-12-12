@@ -2,14 +2,17 @@ package me.filters;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
+import origami.Filter;
 
-public class Thresh implements Filter{
+public class Thresh implements Filter {
 
     int sensitivity = 100;
     int maxVal = 255;
+
     public Thresh() {
 
     }
+
     public Thresh(int _sensitivity) {
         this.sensitivity = _sensitivity;
     }

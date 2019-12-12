@@ -1,18 +1,16 @@
 package me.filters;
 
-import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
-import org.opencv.highgui.HighGui;
-import org.opencv.videoio.VideoCapture;
-import origami.Origami;
-
 import static org.opencv.core.Core.bitwise_and;
 import static org.opencv.core.Core.inRange;
-import static org.opencv.imgcodecs.Imgcodecs.imread;
-import static org.opencv.imgcodecs.Imgcodecs.imwrite;
-import static org.opencv.imgproc.Imgproc.*;
+import static org.opencv.imgproc.Imgproc.COLOR_BGR2HSV;
+import static org.opencv.imgproc.Imgproc.cvtColor;
 
-public class ColorFilter implements Filter{
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+
+import origami.Filter;
+
+public class ColorFilter implements Filter {
 
     enum COLOR {
         RED, BLUE, PINK
@@ -22,27 +20,26 @@ public class ColorFilter implements Filter{
     private int high = 20;
 
     /**
-     * https://i.stack.imgur.com/SobpV.jpg
-     * divided by 2
+     * https://i.stack.imgur.com/SobpV.jpg divided by 2
      * https://stackoverflow.com/questions/17878254/opencv-python-cant-detect-blue-objects
      */
 
     public ColorFilter(COLOR c) {
         switch (c) {
-            case RED:
-                this.low = 0;
-                this.high = 20;
-                break;
-            case BLUE:
-                this.low = 200;
-                this.high = 240;
-                break;
-            case PINK:
-                this.low = 300;
-                this.high = 320;
-                break;
-            default:
-                ;
+        case RED:
+            this.low = 0;
+            this.high = 20;
+            break;
+        case BLUE:
+            this.low = 200;
+            this.high = 240;
+            break;
+        case PINK:
+            this.low = 300;
+            this.high = 320;
+            break;
+        default:
+            ;
         }
     }
 
@@ -57,8 +54,5 @@ public class ColorFilter implements Filter{
         bitwise_and(frame, frame, result, mask);
         return result;
     }
-
-
-
 
 }

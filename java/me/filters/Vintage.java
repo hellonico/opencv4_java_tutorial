@@ -4,6 +4,7 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import origami.Origami;
+import origami.Filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class Vintage implements Filter {
     public static void main(String... args) {
         Origami.init();
         /**
-         * // https://stackoverflow.com/questions/27212167/unable-to-multiply-matrix-in-opencv-java
+         * //
+         * https://stackoverflow.com/questions/27212167/unable-to-multiply-matrix-in-opencv-java
          */
 
         Mat marcel = imread("data/marcel.jpg");

@@ -2,8 +2,9 @@ package me.filters;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
+import origami.Filter;
 
-public class Gray implements Filter{
+public class Gray implements Filter {
 
     public Mat apply(Mat img) {
         Mat mat1 = new Mat();

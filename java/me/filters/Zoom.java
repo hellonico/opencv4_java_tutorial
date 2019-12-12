@@ -4,6 +4,7 @@ import org.opencv.core.Mat;
 
 import static org.opencv.imgproc.Imgproc.INTER_LINEAR;
 import static org.opencv.imgproc.Imgproc.resize;
+import origami.Filter;
 
 public class Zoom implements Filter {
 

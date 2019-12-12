@@ -4,6 +4,7 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
 import static org.opencv.core.Core.transform;
+import origami.Filter;
 
 public class GreenLantern implements Filter {
     @Override

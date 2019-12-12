@@ -1,8 +1,9 @@
 package me.filters;
 
 import org.opencv.core.Mat;
+import origami.Filter;
 
-public class ALTMRetinex implements Filter{
+public class ALTMRetinex implements Filter {
     private int r = 10;
     private double eps = 0.01;
     private double eta = 36.0;

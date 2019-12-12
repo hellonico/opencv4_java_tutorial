@@ -6,6 +6,8 @@ import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
+import origami.Filter;
+
 import java.util.ArrayList;
 import java.util.List;
 

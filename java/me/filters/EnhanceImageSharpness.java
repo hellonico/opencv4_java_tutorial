@@ -4,6 +4,7 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+import origami.Filter;
 
 public class EnhanceImageSharpness implements Filter {
     public double alpha = 1.5;

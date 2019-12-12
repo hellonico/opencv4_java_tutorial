@@ -3,6 +3,7 @@ package me.filters;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+import origami.Filter;
 
 import static org.opencv.core.Core.bitwise_and;
 import static org.opencv.imgproc.Imgproc.*;

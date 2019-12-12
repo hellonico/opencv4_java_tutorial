@@ -1,13 +1,9 @@
 package me.filters;
 
-import me.filters.Filter;
 import org.opencv.core.Mat;
-import origami.Origami;
-
+import origami.Filter;
 import static org.opencv.core.Core.multiply;
 import static org.opencv.core.CvType.CV_64F;
-import static org.opencv.imgcodecs.Imgcodecs.imread;
-import static org.opencv.imgcodecs.Imgcodecs.imwrite;
 import static org.opencv.imgproc.Imgproc.*;
 
 public class HueSaturationValue {
@@ -15,18 +11,12 @@ public class HueSaturationValue {
     static Mat filter(Mat marcel, int cs1, int cs2, double... values) {
         Mat m = new Mat(1, 3, CV_64F);
         m.put(0, 0, values);
-        if (cs1 != -1) cvtColor(marcel, marcel, cs1);
+        if (cs1 != -1)
+            cvtColor(marcel, marcel, cs1);
         multiply(marcel, m, marcel);
-        if (cs2 != -1) cvtColor(marcel, marcel, cs2);
+        if (cs2 != -1)
+            cvtColor(marcel, marcel, cs2);
         return marcel;
-    }
-
-    public static void main(String... args) {
-        Origami.init();
-        Mat marcel = imread("data/marcel2019.jpg");
-        imwrite("lomo.jpg", new Lomo().apply(marcel.clone()));
-        imwrite("nashville.jpg", new Nashville().apply(marcel.clone()));
-        imwrite("gotham.jpg", new Gotham().apply(marcel.clone()));
     }
 
     public static class Pink implements Filter {
