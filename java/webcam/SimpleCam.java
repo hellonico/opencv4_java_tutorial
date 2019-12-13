@@ -1,8 +1,8 @@
 package webcam;
 
-import me.filters.android.Cartoon2;
 import origami.Camera;
 import origami.Origami;
+import origami.filters.Cartoon2;
 
 public class SimpleCam {
 
