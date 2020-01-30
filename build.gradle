@@ -31,8 +31,9 @@ dependencies {
     // }
     // compile 'opencv:opencv:4.0.0-0'
 //    compile 'opencv:opencv-native:4.1.2-0'
-    compile 'origami:origami:4.1.2-4'
-    implementation 'origami:optimized-image-enhanced:1.0'
+    compile 'origami:origami:4.2.0-0'
+    // compile 'origami:origami-filters:1.4'
+    implementation 'origami:optimized-image-enhanced:1.4'
     
     compile 'info.picocli:picocli:4.1.0'
 

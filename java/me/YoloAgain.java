@@ -72,7 +72,7 @@ public class YoloAgain {
         Origami.init();
         String video = "/Users/niko/Dropbox/MeiMa+photo/meimanon2019/597842788.852328.mp4";
 //        Filter filter = new Filters(new MyYolo("networks.yolo:yolov3-tiny:1.0.0").only("car"), new FPS());
-        MyYolo yolo = new MyYolo("networks.yolo:yolov3-tiny:1.0.0"); //.only("person");
+        MyYolo yolo = new MyYolo("networks.yolo:yolov2-tiny:1.0.0"); //.only("person");
         yolo.thresholds(0.4f, 1.0f);
         yolo.annotateWithTotal();
 
