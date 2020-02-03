@@ -3,7 +3,7 @@ package opencvtutorial;
 import org.opencv.core.*;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 class HitMissRun {
 
@@ -46,7 +46,7 @@ public class HitMiss {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

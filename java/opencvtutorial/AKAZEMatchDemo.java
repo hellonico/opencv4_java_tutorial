@@ -6,9 +6,9 @@ import org.opencv.features2d.DescriptorMatcher;
 import org.opencv.features2d.Features2d;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.scijava.nativelib.NativeLoader;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+import origami.Origami;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,7 +22,7 @@ class AKAZEMatch {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

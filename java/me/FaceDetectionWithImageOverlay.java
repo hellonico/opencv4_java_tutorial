@@ -7,7 +7,7 @@ import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 import picocli.CommandLine;
 
 import javax.swing.*;
@@ -142,7 +142,7 @@ public class FaceDetectionWithImageOverlay implements Callable<Integer> {
     }
 
     public static void main(String args[]) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
     }
 }

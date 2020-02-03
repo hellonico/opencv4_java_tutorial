@@ -6,7 +6,6 @@ import org.opencv.dnn.Net;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.utils.Converters;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
 import origami.Origami;
 
 import javax.swing.*;
@@ -25,7 +24,7 @@ public class Yolo {
     }
 
     public static void main(String[] args) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         // Download and load only wights for YOLO , this is obtained from
         // official YOLO site//

@@ -1,13 +1,12 @@
 package opencvtutorial;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfKeyPoint;
 import org.opencv.features2d.Features2d;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.xfeatures2d.SURF;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.io.IOException;
 
@@ -42,7 +41,7 @@ class SurfKeyPointsDetection {
 
 public class SurfKeyPointsDemo {
     public static void main(String[] args) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         new SurfKeyPointsDetection().run(args);
     }
 }

@@ -17,7 +17,7 @@ package tobybreckon;
 
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class PointInPolygonTest {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

@@ -12,10 +12,9 @@ package tobybreckon;
 
 // import required OpenCV components
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 // ********************************************************
 
@@ -23,7 +22,7 @@ public class ColourQuery {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

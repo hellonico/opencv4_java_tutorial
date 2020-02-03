@@ -5,7 +5,7 @@ import org.opencv.core.*;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -167,7 +167,7 @@ public class CalcBackProjectDemo2 {
 
 
     public static void main(String[] args) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         // Schedule a job for the event dispatch thread:
         // creating and showing this application's GUI.

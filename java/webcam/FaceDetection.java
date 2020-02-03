@@ -12,7 +12,6 @@ import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
 import origami.Origami;
 
 import javax.swing.*;
@@ -78,7 +77,7 @@ class processor {
 public class FaceDetection {
 
     public static void main(String arg[]) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         String window_name = "Capture - Face detection";
         JFrame frame = new JFrame(window_name);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

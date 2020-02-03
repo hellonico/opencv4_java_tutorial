@@ -3,7 +3,7 @@ package dip;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ImageShapeConversions {
     public static void main(String[] args) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         File input = new File("data/dip/digital_image_processing.jpg");
         BufferedImage image = ImageIO.read(input);

@@ -6,7 +6,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,7 +23,7 @@ public class DetectFace {
 	static ImageIcon icon;
  
 	public static void main(String[] args) throws IOException {
-		NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		Origami.init();
 
 		CascadeClassifier cascadeFaceClassifier = new CascadeClassifier(
 				"data/haarcascades/haarcascade_frontalface_default.xml");

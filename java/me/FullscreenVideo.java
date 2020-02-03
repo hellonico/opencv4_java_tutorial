@@ -1,12 +1,10 @@
 package me;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.Videoio;
-import org.scijava.nativelib.NativeLoader;
 import origami.Origami;
 import picocli.CommandLine;
 
@@ -30,7 +28,7 @@ public class FullscreenVideo extends JFrame implements Callable<Integer> {
     Boolean fullscreen;
 
     public static void main(String args[]) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         new CommandLine(new FullscreenVideo()).execute(args);
     }
 

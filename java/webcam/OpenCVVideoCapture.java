@@ -5,10 +5,9 @@
 
 package webcam;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -21,7 +20,7 @@ class Mat2Image {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

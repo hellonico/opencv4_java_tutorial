@@ -16,7 +16,7 @@ package tobybreckon;
 import org.opencv.core.*;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.util.List;
 import java.util.Vector;
@@ -29,7 +29,7 @@ public class detectContours {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

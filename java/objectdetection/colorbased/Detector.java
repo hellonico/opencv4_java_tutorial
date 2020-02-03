@@ -4,7 +4,7 @@ package objectdetection.colorbased;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class Detector {
 
 	public static void main(String arg[]) throws IOException {
-		NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+		Origami.init();
 
 		JFrame cameraFrame = new JFrame("Anl�k kamera g�r�nt�s�");
 		cameraFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

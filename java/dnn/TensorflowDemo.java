@@ -4,7 +4,7 @@ import org.opencv.core.*;
 import org.opencv.dnn.Dnn;
 import org.opencv.dnn.Net;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,7 +20,7 @@ public class TensorflowDemo {
     }
 
     public static void main(String[] args) throws Exception {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         String sourceImageFile = "data/tf/grace_hopper_227.png";
         String tfnetFile = "data/tf/tensorflow_inception_graph.pb";

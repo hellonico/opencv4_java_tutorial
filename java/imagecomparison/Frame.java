@@ -1,7 +1,6 @@
 package imagecomparison;
 
-import org.opencv.core.Core;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -23,7 +22,7 @@ public class Frame {
 	static {
 		try {
 			// Load the native OpenCV library
-			NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+			Origami.init();
 		} catch (Exception e) {
 
 		}

@@ -18,7 +18,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 // ********************************************************
 
@@ -26,7 +26,7 @@ public class ImageDiff {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

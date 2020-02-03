@@ -17,7 +17,7 @@ import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.HOGDescriptor;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class hogPeopleDetection {
 	static {
 		try {
 			// Load the native OpenCV library
-			NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+			Origami.init();
 		} catch (Exception e) {
 
 		}

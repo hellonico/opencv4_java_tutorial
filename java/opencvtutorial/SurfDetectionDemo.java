@@ -1,13 +1,12 @@
 package opencvtutorial;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfKeyPoint;
 import org.opencv.features2d.Features2d;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.xfeatures2d.SURF;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 class SURFDetection {
     public void run(String[] args) {
@@ -41,7 +40,7 @@ public class SurfDetectionDemo {
     static {
         try {
             // Load the native OpenCV library
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+            Origami.init();
         } catch (Exception e) {
 
         }

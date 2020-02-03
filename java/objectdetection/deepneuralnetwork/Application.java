@@ -1,12 +1,11 @@
 package objectdetection.deepneuralnetwork;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import java.util.List;
 public class Application {
 
     public static void main(String[] args) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         DeepNeuralNetworkProcessor processor = new DeepNeuralNetworkProcessor();
 //        System.loadLibrary("opencv_java340");
         List<DnnObject> detectObject = new ArrayList<>();

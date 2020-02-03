@@ -14,4 +14,4 @@
                  [origami/optimized-image-enhanced "1.4"]
                  [org.clojure/clojure "1.8.0"]
                  [info.picocli/picocli "4.1.0"]
-                 [origami/origami "4.2.0-0"]])
+                 [origami/origami "4.2.0-1"]])

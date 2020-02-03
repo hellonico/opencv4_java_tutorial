@@ -6,7 +6,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.ml.Ml;
 import org.opencv.ml.SVM;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 /**
  * https://en.wikipedia.org/wiki/Support_vector_machine
@@ -14,7 +14,7 @@ import org.scijava.nativelib.NativeLoader;
 public class IntroductionToSVMDemo {
     public static void main(String[] args) throws Exception {
         // Load the native OpenCV library
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         // Set up training data
         // ! [setup1]

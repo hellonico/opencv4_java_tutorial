@@ -6,7 +6,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.ml.Ml;
 import org.opencv.ml.SVM;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.util.Random;
 
@@ -17,7 +17,7 @@ public class NonLinearSVMsDemo {
     public static void main(String[] args) throws Exception {
 
         // Load the native OpenCV library
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         System.out.println("\n--------------------------------------------------------------------------");
         System.out.println("This program shows Support Vector Machines for Non-Linearly Separable Data. ");

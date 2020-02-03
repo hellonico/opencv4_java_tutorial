@@ -1,11 +1,10 @@
 package dnn.rt;
 
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +15,7 @@ public class OnePicture {
     }
 
     public static void main(String[] args) throws IOException {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
         CaffeProcessor processor = new CaffeProcessor();
         Mat frame = Imgcodecs.imread("data/dnn/rt/dog.jpg");
         List<DnnObject> detectObject = processor.getObjectsInFrame(frame);

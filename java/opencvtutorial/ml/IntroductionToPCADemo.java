@@ -4,7 +4,7 @@ import org.opencv.core.*;
 import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
-import org.scijava.nativelib.NativeLoader;
+import origami.Origami;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -135,7 +135,7 @@ class IntroductionToPCA {
 public class IntroductionToPCADemo {
     public static void main(String[] args) throws Exception {
         // Load the native OpenCV library
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        Origami.init();
 
         new IntroductionToPCA().run(args);
     }
