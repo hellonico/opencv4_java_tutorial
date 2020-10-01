@@ -62,7 +62,7 @@ object YoloV3Demo {
     }
 
     private fun postprocess(filename: String, frame: Mat, labels: List<String>, outs: List<Mat>, classIds: MutableList<Int>, confidences: MutableList<Float>, locations: List<*>, nResults: Int) {
-        val tmpLocations = ArrayList<Rect>()
+        val tmpLocations = ArrayList<Rect2d>()
         val tmpClasses = ArrayList<Int>()
         val tmpConfidences = ArrayList<Float>()
         val w = frame.width()
@@ -95,7 +95,7 @@ object YoloV3Demo {
 
                     tmpClasses.add(result.maxLoc.x.toInt())
                     tmpConfidences.add(result.maxVal.toFloat())
-                    val box = Rect(left.toInt(), top.toInt(), width.toInt(), height.toInt())
+                    val box = Rect2d(left.toDouble(), top.toDouble(), width.toDouble(), height.toDouble())
 //                    println(">"+result.maxLoc.x+":"+result.maxLoc.y+"<>"+result.maxLoc);
 //                    println(box)
 //                    println(out.row(j).colRange(0,5).dump())
@@ -106,16 +106,17 @@ object YoloV3Demo {
             }
         }
         println(tmpClasses.size)
+
         annotateFrame(frame, labels, classIds, confidences, nResults, tmpLocations, tmpClasses, tmpConfidences)
         imwrite("out/" + File(filename).name, frame)
     }
 
-    private fun annotateFrame(frame: Mat, labels: List<String>, classIds: MutableList<Int>, confidences: MutableList<Float>, nResults: Int, tmpLocations: List<Rect>, tmpClasses: List<Int>, tmpConfidences: List<Float>) {
+    private fun annotateFrame(frame: Mat, labels: List<String>, classIds: MutableList<Int>, confidences: MutableList<Float>, nResults: Int, tmpLocations: List<Rect2d>, tmpClasses: List<Int>, tmpConfidences: List<Float>) {
         // Perform non maximum suppression to eliminate redundant overlapping boxes with
         // lower confidences and sort by confidence
 
         // many overlapping results coming from yolo so have to use it
-        val locMat = MatOfRect()
+        val locMat = MatOfRect2d()
         locMat.fromList(tmpLocations)
         val confidenceMat = MatOfFloat()
         confidenceMat.fromList(tmpConfidences)
@@ -131,7 +132,7 @@ object YoloV3Demo {
             confidences.add(tmpConfidences[idx])
             val box = tmpLocations[idx]
             val label = labels[classIds[i]]
-            Imgproc.rectangle(frame, box, Scalar(0.0, 0.0, 0.0), 2)
+            Imgproc.rectangle(frame, Rect(box.tl(),box.br()), Scalar(0.0, 0.0, 0.0), 2)
             Imgproc.putText(frame, label, Point(box.x.toDouble(), box.y.toDouble()), Imgproc.FONT_HERSHEY_PLAIN, 1.0, Scalar(0.0, 0.0, 0.0), 2)
             ++i
 

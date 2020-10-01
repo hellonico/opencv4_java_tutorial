@@ -23,7 +23,8 @@ public class CaptureCamera {
 
         // create video capture device object (camera index = 0)
 
-        VideoCapture cap = new VideoCapture(0);
+        VideoCapture cap = new VideoCapture();
+        cap.open(0);
 
         if (!cap.isOpened())
             System.out.println("error cannot any open camera");

@@ -8,6 +8,7 @@ import org.opencv.imgcodecs.Imgcodecs.imwrite
 import org.opencv.imgproc.Imgproc.*
 import org.opencv.videoio.VideoCapture
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -42,7 +43,8 @@ class CartooningFast {
 
     fun capturing() {
         Core.setNumThreads(4)
-        val vc = VideoCapture(0)
+        val vc = VideoCapture()
+        vc.open(0)
         val image = Mat()
         var key = -1
         while (key == -1) {
@@ -61,7 +63,7 @@ class CartooningFast {
 
         @JvmStatic
         fun main(args: Array<String>) {
-            NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+            Origami.init()
             CartooningFast()
             exitProcess(0)
         }

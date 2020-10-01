@@ -67,7 +67,8 @@ object WebcamFaceDetection {
         frame.contentPane = myPanel
         frame.isVisible = true
         var webcamImage = Mat()
-        val capture = VideoCapture(0)
+        val capture = VideoCapture()
+        capture.open(0)
 
         if (capture.isOpened) {
 

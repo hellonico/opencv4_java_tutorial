@@ -42,7 +42,8 @@ public class Yolo {
         String filePath = "data/cars.mpeg";
 
         // Load video using the videocapture method//
-        VideoCapture cap = new VideoCapture(filePath);
+        VideoCapture cap = new VideoCapture();
+        cap.open(filePath);
         // define a matrix to extract and store pixel info from video//
         Mat frame = new Mat();
 
@@ -131,7 +132,8 @@ public class Yolo {
         MatOfInt indices = new MatOfInt();
         // We draw the bounding boxes for
         // objects here//
-        Dnn.NMSBoxes(boxes, confidences, confThreshold, nmsThresh, indices);
+
+        //Dnn.NMSBoxes(boxes, confidences, confThreshold, nmsThresh, indices);
 
         int[] ind = indices.toArray();
         int j = 0;

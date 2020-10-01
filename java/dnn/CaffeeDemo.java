@@ -28,8 +28,7 @@ public class CaffeeDemo {
 
         String tfnetFile = "data/caffee/age_net.caffemodel";
         String protoFil = "data/caffee/age.prototxt";
-        List<String> labels = Arrays.asList("(0, 2)", "(4, 6)", "(8, 12)", "(15, 20)", "(25, 32)", "(38, 43)",
-                "(48, 53)", "(60, 100)");
+        List<String> labels = Arrays.asList("(0, 2)", "(4, 6)", "(8, 12)", "(15, 20)", "(25, 32)", "(38, 43)",  "(48, 53)", "(60, 100)");
         runCaffeeNetwork(sourceImageFile, tfnetFile, protoFil, labels);
     }
 

@@ -46,7 +46,8 @@ public class ThresholdInRange {
         if (args.length > 0) {
             cameraDevice = Integer.parseInt(args[0]);
         }
-        cap = new VideoCapture(cameraDevice);
+        cap = new VideoCapture();
+        cap.open(cameraDevice);
         if (!cap.isOpened()) {
             System.err.println("Cannot open camera: " + cameraDevice);
             System.exit(0);

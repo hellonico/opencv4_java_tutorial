@@ -33,7 +33,8 @@ public class FullscreenVideo extends JFrame implements Callable<Integer> {
     }
 
     public Integer call() {
-        VideoCapture camera = new VideoCapture(videoFile.getAbsolutePath());
+        VideoCapture camera = new VideoCapture();
+        camera.open(videoFile.getAbsolutePath());
         Mat frame = new Mat();
         Dimension di = getDimensions(camera, this, fullscreen);
         if (!camera.isOpened()) {

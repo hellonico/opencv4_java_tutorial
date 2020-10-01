@@ -61,7 +61,8 @@ class ObjectDetection {
             System.exit(0);
         }
 
-        VideoCapture capture = new VideoCapture(cameraDevice);
+        VideoCapture capture = new VideoCapture();
+        capture.open(cameraDevice);
         if (!capture.isOpened()) {
             System.err.println("--(!)Error opening video capture");
             System.exit(0);

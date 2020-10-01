@@ -36,7 +36,8 @@ class VideoFrame : JFrame() {
             loadLibrary(Core.NATIVE_LIBRARY_NAME)
             val t = VideoFrame()
             val videoFile = args.getOrElse(0, {_-> "data/lexus.mpg"})
-            val camera = VideoCapture(videoFile)
+            val camera = VideoCapture()
+            camera.open(videoFile);
             val frame = Mat()
             val di = getDimensions(camera, t, true)
             if (!camera.isOpened) {

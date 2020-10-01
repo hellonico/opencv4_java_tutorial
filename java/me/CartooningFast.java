@@ -14,7 +14,8 @@ public class CartooningFast {
 
 
     void capturing() {
-        VideoCapture vc = new VideoCapture(0);
+        VideoCapture vc = new VideoCapture();
+        vc.open(0);
         if(!vc.isOpened()) return;
         Mat image = new Mat();
         int key = -1;

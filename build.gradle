@@ -22,18 +22,15 @@ task runJ(type:JavaExec) {
 
 sourceSets {
         main.java.srcDirs = ['java','clj','kotlin']
-        main.resources.srcDirs = ['resources']
+        main.resources.srcDirs = ['resources','data']
 }
 
 dependencies {
-    // compile('origami:origami:4.1.2') {
-    //     exclude group: 'opencv'
-    // }
-    // compile 'opencv:opencv:4.0.0-0'
-//    compile 'opencv:opencv-native:4.1.2-0'
-    compile 'origami:origami:4.2.0-1'
-    // compile 'origami:origami-filters:1.4'
-    implementation 'origami:optimized-image-enhanced:1.4'
+
+    compile('origami:filters:1.11') {
+        exclude group: 'origami', module: 'origami'
+    }
+    compile 'origami:origami:4.3.0-8'
     
     compile 'info.picocli:picocli:4.1.0'
 
@@ -53,6 +50,9 @@ repositories {
     maven {
         url "https://clojars.org/repo/"
     }
+    maven { url "https://jitpack.io" }
+
+    mavenLocal()
 }
 compileKotlin {
     kotlinOptions {

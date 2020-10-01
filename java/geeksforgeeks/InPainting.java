@@ -18,9 +18,9 @@ public class InPainting {
 
     public static void main(String[] args) throws IOException {
         loadLibrary(NATIVE_LIBRARY_NAME);
-        Mat img = imread("data/cat_damaged.png");
-        Mat mask = imread("data/cat_mask.png", 0);
-        Mat dst = new Mat();
+        var img = imread("data/cat_damaged.png");
+        var mask = imread("data/cat_mask.png", 0);
+        var dst = new Mat();
         inpaint(img, mask, dst, 3, INPAINT_NS);
         imwrite("data/cat_inpainted.png", dst);
     }

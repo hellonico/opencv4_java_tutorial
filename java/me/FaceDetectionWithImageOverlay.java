@@ -117,7 +117,8 @@ public class FaceDetectionWithImageOverlay implements Callable<Integer> {
         frame.setVisible(true);
         // -- 2. Read the video stream
         Mat webcam_image = new Mat();
-        VideoCapture capture = new VideoCapture(0);
+        VideoCapture capture = new VideoCapture();
+        capture.open(0);
 
         // capture.set(Video., value)
         if (capture.isOpened()) {

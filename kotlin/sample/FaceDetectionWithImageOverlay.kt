@@ -104,7 +104,8 @@ object FaceDetectionWithImageOverlay {
         frame.contentPane = my_panel
         frame.isVisible = true
         val webcam_image = Mat()
-        val capture = VideoCapture(0)
+        val capture = VideoCapture()
+        capture.open(0)
 
         if (capture.isOpened) {
 

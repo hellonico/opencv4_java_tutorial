@@ -18,7 +18,8 @@ public class Application {
         DeepNeuralNetworkProcessor processor = new DeepNeuralNetworkProcessor();
 //        System.loadLibrary("opencv_java340");
         List<DnnObject> detectObject = new ArrayList<>();
-        VideoCapture capturre = new VideoCapture(0);
+        VideoCapture capturre = new VideoCapture();
+        capturre.open(0);
         while (true)
         {
            Mat frame = new Mat();

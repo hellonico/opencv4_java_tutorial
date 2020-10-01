@@ -32,7 +32,8 @@ public class Detector {
 		Panel panelThreshold = new Panel();
 		thresholdFrame.setContentPane(panelThreshold);
 		thresholdFrame.setVisible(true);
-		VideoCapture capture = new VideoCapture(0);
+		VideoCapture capture = new VideoCapture();
+		capture.open(0);
 		Mat webcam_image = new Mat();
 		Mat hsv_image = new Mat();
 		Mat thresholded = new Mat();

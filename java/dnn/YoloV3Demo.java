@@ -69,7 +69,7 @@ public class YoloV3Demo {
 
     private static void postprocess(String filename, Mat frame, List<String> labels, List<Mat> outs,
             List<Integer> classIds, List<Float> confidences, List locations, int nResults) {
-        List<Rect> tmpLocations = new ArrayList<>();
+        List<Rect2d> tmpLocations = new ArrayList<>();
         List<Integer> tmpClasses = new ArrayList<>();
         List<Float> tmpConfidences = new ArrayList<>();
         int w = frame.width();
@@ -93,14 +93,14 @@ public class YoloV3Demo {
                 if (result.maxVal > 0) {
                     float center_x = data[k + 0] * w;
                     float center_y = data[k + 1] * h;
-                    float width = data[k + 2] * w;
-                    float height = data[k + 3] * h;
-                    float left = center_x - width / 2;
-                    float top = center_y - height / 2;
+                    double width = data[k + 2] * w;
+                    double height = data[k + 3] * h;
+                    double left = center_x - width / 2;
+                    double top = center_y - height / 2;
 
                     tmpClasses.add((int) result.maxLoc.x);
                     tmpConfidences.add((float) result.maxVal);
-                    tmpLocations.add(new Rect((int) left, (int) top, (int) width, (int) height));
+                    tmpLocations.add(new Rect2d(left, top, width, height));
 
                 }
                 k += out.width();
@@ -111,12 +111,12 @@ public class YoloV3Demo {
     }
 
     private static void annotateFrame(Mat frame, List<String> labels, List<Integer> classIds, List<Float> confidences,
-            int nResults, List<Rect> tmpLocations, List<Integer> tmpClasses, List<Float> tmpConfidences) {
+            int nResults, List<Rect2d> tmpLocations, List<Integer> tmpClasses, List<Float> tmpConfidences) {
         // Perform non maximum suppression to eliminate redundant overlapping boxes with
         // lower confidences and sort by confidence
 
         // many overlapping results coming from yolo so have to use it
-        MatOfRect locMat = new MatOfRect();
+        MatOfRect2d locMat = new MatOfRect2d();
         locMat.fromList(tmpLocations);
         MatOfFloat confidenceMat = new MatOfFloat();
         confidenceMat.fromList(tmpConfidences);
@@ -128,7 +128,8 @@ public class YoloV3Demo {
             int idx = (int) indexMat.get(i, 0)[0];
             classIds.add(tmpClasses.get(idx));
             confidences.add(tmpConfidences.get(idx));
-            Rect box = tmpLocations.get(idx);
+            Rect2d _box = tmpLocations.get(idx);
+            Rect box = new Rect((int)_box.x, (int)_box.y, (int)_box.width, (int)_box.height);
             String label = labels.get(classIds.get(i));
             Imgproc.rectangle(frame, box, new Scalar(0, 0, 0), 2);
             Imgproc.putText(frame, label, new Point(box.x, box.y), Imgproc.FONT_HERSHEY_PLAIN, 1.0, new Scalar(0, 0, 0),
