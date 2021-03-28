@@ -37,11 +37,9 @@ public class DnnOpenCV {
     private static Mat imageRead;
 
     public static ArrayList<String> getImgLabels(String imgLabelsFilePath) throws IOException {
-        ArrayList<String> imgLabels;
         try (Stream<String> lines = Files.lines(Paths.get(imgLabelsFilePath))) {
-            imgLabels = lines.collect(Collectors.toCollection(ArrayList::new));
+            return lines.collect(Collectors.toCollection(ArrayList::new));
         }
-        return imgLabels;
     }
 
     public static Mat centerCrop(Mat inputImage) {
@@ -108,10 +106,8 @@ public class DnnOpenCV {
     }
 
     public static void main(String[] args) {
-        String imageLocation = "data/sallick/images/coffee.jpg";
+        String imageLocation = args.length >= 1 ? args[0] : "data/sallick/images/coffee.jpg";
 
-        // load the OpenCV native library
-        // System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         Origami.init();
 
         // read and process the input image

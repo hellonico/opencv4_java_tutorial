@@ -30,7 +30,7 @@ dependencies {
     compile('origami:filters:1.11') {
         exclude group: 'origami', module: 'origami'
     }
-    compile 'origami:origami:4.3.0-8'
+    compile 'origami:origami:4.5.1-0'
     
     compile 'info.picocli:picocli:4.1.0'
 

@@ -10,9 +10,9 @@ public class Camera2 extends Camera {
     public Camera2() {
         super();
     }
-
-    @Override
-    public Camera filter(Function<Mat, Mat> filter) {
-        return super.filter(new Compare(filter));
-    }
+//
+//    @Override
+//    public Camera filter(Function<Mat, Mat> filter) {
+//        return super.filter(new Compare(filter));
+//    }
 }
