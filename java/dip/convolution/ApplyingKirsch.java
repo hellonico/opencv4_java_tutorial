@@ -23,7 +23,7 @@ public class ApplyingKirsch {
                 put(0, 1, -3);
                 put(0, 2, -3);
 
-                put(1, 0 - 3);
+                put(1, 0, - 3);
                 put(1, 1, 0);
                 put(1, 2, -3);
 

@@ -3,6 +3,7 @@ package sample
 import org.opencv.core.*
 import org.opencv.imgcodecs.Imgcodecs
 import org.opencv.imgproc.Imgproc
+import org.opencv.imgproc.Imgproc.*
 import org.opencv.objdetect.CascadeClassifier
 import org.opencv.videoio.VideoCapture
 import org.opencv.videoio.Videoio.CAP_PROP_FRAME_HEIGHT
@@ -53,16 +54,16 @@ object DetectFace {
                 cascadeFaceClassifier.detectMultiScale(frameCapture, faces)
                 for (rect in faces.toArray()) {
 
-                    Imgproc.putText(frameCapture, "Face", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
-                    Imgproc.rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
+                    putText(frameCapture, "Face", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
+                    rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
                             Scalar(0.0, 100.0, 0.0), 3)
                 }
 
                 val eyes = MatOfRect()
                 cascadeEyeClassifier.detectMultiScale(frameCapture, eyes)
                 for (rect in eyes.toArray()) {
-                    Imgproc.putText(frameCapture, "Eye", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
-                    Imgproc.rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
+                    putText(frameCapture, "Eye", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
+                    rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
                             Scalar(200.0, 200.0, 100.0), 2)
                 }
 
@@ -70,17 +71,14 @@ object DetectFace {
                 cascadeNoseClassifier.detectMultiScale(frameCapture, nose)
                 for (rect in nose.toArray()) {
 
-                    Imgproc.putText(frameCapture, "Nose", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
-                    Imgproc.rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
+                    putText(frameCapture, "Nose", Point(rect.x.toDouble(), (rect.y - 5).toDouble()), 1, 2.0, Scalar(0.0, 0.0, 255.0))
+                    rectangle(frameCapture, Point(rect.x.toDouble(), rect.y.toDouble()), Point((rect.x + rect.width).toDouble(), (rect.y + rect.height).toDouble()),
                             Scalar(50.0, 255.0, 50.0), 2)
                 }
 
                 PushImage(ConvertMat2Image(frameCapture))
 //                println(String.format("%s FACES %s EYE %s NOSE detected.", faces.toArray().size, eyes.toArray().size, nose.toArray().size))
             }
-        } else {
-            println("Video aygytyna ba?lanylamady.")
-            return
         }
     }
 

@@ -5,6 +5,7 @@ import org.opencv.core.Core.*
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
 
 import java.io.IOException
 
@@ -12,19 +13,15 @@ object AddingBorder {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(NATIVE_LIBRARY_NAME)
+        Origami.init()
 
         val source = imread("data/dip/digital_image_processing.jpg")
         val destination = Mat(source.rows(), source.cols(), source.type())
 
-        val top: Int
-        val bottom: Int
-        val left: Int
-        val right: Int
-        top = (0.05 * source.rows()).toInt()
-        bottom = (0.05 * source.rows()).toInt()
-        left = (0.05 * source.cols()).toInt()
-        right = (0.05 * source.cols()).toInt()
+        val top = source.rows() / 20
+        val bottom = source.rows() / 20
+        val left = source.cols() / 20
+        val right = source.cols() / 20
 
         copyMakeBorder(source, destination, top, bottom, left, right, BORDER_WRAP)
         imwrite("borderWrap.jpg", destination)

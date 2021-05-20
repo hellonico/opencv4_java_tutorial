@@ -6,14 +6,15 @@ import org.opencv.core.CvType
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
 
 object Sepia {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(NATIVE_LIBRARY_NAME)
-        val filename = args.elementAtOrElse(0, { _ -> "marcel.jpg" });
-        val out = args.elementAtOrElse(1, {_-> "target"})
+        Origami.init()
+        val filename = args.elementAtOrElse(0, { _ -> "tanaka.jpg" });
+        val out = args.elementAtOrElse(1, {_-> "out"})
 
         val source = imread(filename)
         val kernel = Mat(3, 3, CvType.CV_32F)
