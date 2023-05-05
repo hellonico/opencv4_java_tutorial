@@ -6,13 +6,15 @@ import org.opencv.core.Size
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc.*
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 import java.io.IOException
 
 object ImagePyramid {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
 
         var source = imread("data/dip/digital_image_processing.jpg")
 

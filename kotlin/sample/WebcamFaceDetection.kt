@@ -6,6 +6,8 @@ import org.opencv.imgproc.Imgproc.*
 import org.opencv.objdetect.CascadeClassifier
 import org.opencv.videoio.VideoCapture
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 import java.awt.Graphics
 import java.awt.image.BufferedImage
 import javax.swing.JFrame
@@ -58,7 +60,7 @@ object WebcamFaceDetection {
 
     @JvmStatic
     fun main(arg: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
         val frame = JFrame("Capture - Face detection")
         frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         frame.setSize(400, 300)

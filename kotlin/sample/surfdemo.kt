@@ -6,6 +6,8 @@ import org.opencv.features2d.Features2d.*
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.xfeatures2d.SURF
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 
 internal class SURFDetection {
     fun run(args: Array<String>) {
@@ -40,7 +42,7 @@ object SurfDemo {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
         SURFDetection().run(args)
     }
 }

@@ -25,7 +25,7 @@ object CaffeeDemo {
 
     private fun String.runCaffeeNetwork(tfnetFile: String, protoFil: String, labels: List<*>) {
         val net = readNetFromCaffe(protoFil, tfnetFile)
-        val layernames = net.layerNames
+//        val layernames = net.layerNames
 //        println(layernames)
 
         val image = imread(this)

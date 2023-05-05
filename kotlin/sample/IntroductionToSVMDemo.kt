@@ -7,13 +7,15 @@ import org.opencv.imgproc.Imgproc.*
 import org.opencv.ml.Ml
 import org.opencv.ml.SVM
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 
 
 object IntroductionToSVMDemo {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
         // Set up training data
         //! [setup1]
         val labels = intArrayOf(1, -1, -1, -1)

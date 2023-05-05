@@ -19,7 +19,9 @@ public class SimpleCam {
         new Camera().filter(new Function<Mat, Mat>() {
             @Override
             public Mat apply(Mat im) {
-                Photo.fastNlMeansDenoising(im, im);
+                // Photo.fastNlMeansDenoising(im, im);
+                // identity!
+                // doing nothing here.
                 return im;
             }
         }).run();
