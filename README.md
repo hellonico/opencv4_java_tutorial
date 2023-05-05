@@ -1,9 +1,3 @@
-```
-lein run -m dnn
-```
+This needs JDK>11 with FX included
 
-```
-(dnn/run-image-on-network
-	"data/tf/grace_hopper_227.png" 
-	"data/tf/tensorflow_inception_graph.pb")
-```
+https://bell-sw.com/pages/downloads/#/java-11-lts

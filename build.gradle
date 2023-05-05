@@ -5,7 +5,6 @@ plugins {
     // Apply the application plugin to add support for building an application
     id 'application'
     id 'org.jetbrains.kotlin.jvm' version '1.3.60'
-    id "gradle-clojure.clojure" version "0.5.0-alpha.1"
     id 'maven-publish'
 
 }
@@ -27,14 +26,14 @@ sourceSets {
 
 dependencies {
 
-    compile('origami:filters:1.11') {
+    compile('origami:filters:1.22') {
         exclude group: 'origami', module: 'origami'
     }
-    compile 'origami:origami:4.5.1-0'
+    compile 'origami:origami:4.7.0-0'
     
     compile 'info.picocli:picocli:4.1.0'
 
-    testCompile 'junit:junit:4.12'
+    testCompile 'junit:junit:4.13.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "org.slf4j:slf4j-nop:1.6.2"
 }
@@ -44,7 +43,7 @@ repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
-      maven {
+    maven {
         url "https://repository.hellonico.info/repository/hellonico/"
     }
     maven {

@@ -60,7 +60,6 @@ public class Gallery extends Application {
         return matToImage(imread(f.getAbsolutePath(), IMREAD_REDUCED_COLOR_8));
     }
 
-
     HashMap<File, ArrayList<TaggedRectangle>> store = new HashMap<>();
     ObservableList<String> items;
     List<File> images = new ArrayList<>();
@@ -217,13 +216,11 @@ public class Gallery extends Application {
         listRectsX.setEditable(true);
         listRectsX.setCellFactory(
                 TextFieldListCell.forListView(
-                        new StringConverter<>() {
-                            @Override
+                        new StringConverter<TaggedRectangle>() {
                             public String toString(TaggedRectangle object) {
                                 return object.toString();
                             }
 
-                            @Override
                             public TaggedRectangle fromString(String string) {
                                 return null;
                             }

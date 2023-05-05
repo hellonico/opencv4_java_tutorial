@@ -95,7 +95,7 @@ class CVWebcam : JPanel {
             val t = CVWebcam()
             val webcamI = if(args.size > 0) Integer.parseInt(args[0]) else 0
             val camera = VideoCapture()
-            camera.open(0)
+            camera.open(webcamI)
 
             val frame = Mat()
             camera.read(frame)

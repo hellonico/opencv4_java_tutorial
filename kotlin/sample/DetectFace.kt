@@ -88,7 +88,7 @@ object DetectFace {
         val byteMatVerisi = MatOfByte()
         Imgcodecs.imencode(".jpg", kameraVerisi, byteMatVerisi)
         val byteArray = byteMatVerisi.toArray()
-        var goruntu: BufferedImage? = null
+        var goruntu: BufferedImage?
         try {
             val `in` = ByteArrayInputStream(byteArray)
             goruntu = ImageIO.read(`in`)

@@ -6,6 +6,8 @@ import org.opencv.dnn.Net
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc
 import org.scijava.nativelib.NativeLoader.loadLibrary
+import origami.Origami
+import origami.Origami.*
 import java.io.File
 import java.io.IOException
 import java.nio.file.Files
@@ -17,7 +19,7 @@ object YoloV3Demo {
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
         val tfnetFile = "data/yolov3/yolov3.weights"
         val protoFil = "data/yolov3/yolov3.cfg"
         val input = arrayOf("data/yolov3/bird.jpg")
