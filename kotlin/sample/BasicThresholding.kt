@@ -5,13 +5,14 @@ import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
 import java.io.IOException
 
 object BasicThresholding {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        Origami.init()
 
         val source = imread("data/dip/digital_image_processing.jpg")
         val destination = Mat(source.rows(), source.cols(), source.type())

@@ -9,6 +9,8 @@ import org.opencv.videoio.VideoCapture
 import org.opencv.videoio.Videoio.CAP_PROP_FRAME_HEIGHT
 import org.opencv.videoio.Videoio.CAP_PROP_FRAME_WIDTH
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 import java.awt.FlowLayout
 import java.awt.Image
 import java.awt.image.BufferedImage
@@ -28,7 +30,7 @@ object DetectFace {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
 
         val cascadeFaceClassifier = CascadeClassifier(
                 "data/haarcascades/haarcascade_frontalface_default.xml")
