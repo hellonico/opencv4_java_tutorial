@@ -4,6 +4,8 @@ import org.opencv.core.*
 import org.opencv.dnn.Dnn.*
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 
 object TensorFlowTest {
 
@@ -17,7 +19,7 @@ object TensorFlowTest {
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
 
         val sourceImageFile = "data/tf/grace_hopper_227.png"
         val tfnetFile = "data/tf/tensorflow_inception_graph.pb"

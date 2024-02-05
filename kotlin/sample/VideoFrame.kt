@@ -12,6 +12,8 @@ import org.opencv.imgproc.Imgproc.*
 import org.opencv.videoio.VideoCapture
 import org.opencv.videoio.Videoio
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
+import origami.Origami.*
 
 class VideoFrame : JFrame() {
     lateinit var image: BufferedImage
@@ -33,7 +35,7 @@ class VideoFrame : JFrame() {
         @Throws(Exception::class)
         @JvmStatic
         fun main(args: Array<String>) {
-            loadLibrary(Core.NATIVE_LIBRARY_NAME)
+            init()
             val t = VideoFrame()
             val videoFile = args.getOrElse(0, {_-> "data/lexus.mpg"})
             val camera = VideoCapture()
