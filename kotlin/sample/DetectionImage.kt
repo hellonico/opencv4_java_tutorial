@@ -7,6 +7,8 @@ import org.opencv.core.Scalar
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
+import origami.Origami.*
 import java.io.IOException
 
 object TemplateMatching {
@@ -15,7 +17,7 @@ object TemplateMatching {
     @JvmStatic
     fun main(args: Array<String>) {
 
-        loadLibrary(NATIVE_LIBRARY_NAME)
+        init()
 
         val filePath = "data/detectionimages/"
         val source = imread(filePath + "kapadokya.jpg")

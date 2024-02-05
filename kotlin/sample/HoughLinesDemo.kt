@@ -8,6 +8,7 @@ import org.opencv.highgui.HighGui.*
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
 import java.lang.System.exit
 
 internal class HoughLinesRun {
@@ -96,7 +97,7 @@ object HoughLines {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        Origami.init()
         HoughLinesRun().run(args)
     }
 }

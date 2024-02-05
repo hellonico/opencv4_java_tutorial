@@ -7,6 +7,7 @@ import org.opencv.highgui.HighGui.*
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.opencv.imgproc.Imgproc.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
 
 
 object ImageDiff {
@@ -14,7 +15,7 @@ object ImageDiff {
     @Throws(InterruptedException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(NATIVE_LIBRARY_NAME)
+        Origami.init()
 
         val img1 = imread("data/lena.jpg")
         val img2 = imread("data/lena.jpg")

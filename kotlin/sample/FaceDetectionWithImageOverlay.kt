@@ -19,6 +19,8 @@ import org.opencv.objdetect.CascadeClassifier
 import org.opencv.videoio.VideoCapture
 import org.opencv.videoio.Videoio
 import org.scijava.nativelib.NativeLoader
+import origami.Origami
+import origami.Origami.*
 
 // Create a constructor method
 
@@ -92,7 +94,7 @@ object FaceDetectionWithImageOverlay {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        NativeLoader.loadLibrary(Core.NATIVE_LIBRARY_NAME)
+        init()
         val window_name = "Capture - Face detection"
         val frame = JFrame(window_name)
         frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE

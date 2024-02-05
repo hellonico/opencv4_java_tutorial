@@ -7,6 +7,8 @@ import org.opencv.core.Core.*
 import org.opencv.core.Mat
 import org.opencv.imgcodecs.Imgcodecs.*
 import org.scijava.nativelib.NativeLoader.*
+import origami.Origami
+import origami.Origami.*
 
 object DrawTransparent {
 
@@ -58,7 +60,7 @@ object DrawTransparent {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(NATIVE_LIBRARY_NAME)
+        init()
         marcelAndWhool()
         marcelAndSheep()
     }

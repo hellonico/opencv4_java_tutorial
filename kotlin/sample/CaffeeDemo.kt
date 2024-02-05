@@ -7,13 +7,15 @@ import org.opencv.core.Size
 import org.opencv.dnn.Dnn.*
 import org.opencv.imgcodecs.Imgcodecs.imread
 import org.scijava.nativelib.NativeLoader.loadLibrary
+import origami.Origami
+import origami.Origami.*
 
 object CaffeeDemo {
 
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        loadLibrary(NATIVE_LIBRARY_NAME)
+        init()
 
         val sourceImageFile = "data/caffee/jeunehomme.jpg"
         val tfnetFile = "data/caffee/gender_net.caffemodel"
