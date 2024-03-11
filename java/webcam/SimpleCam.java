@@ -5,7 +5,6 @@ import org.opencv.core.Size;
 import org.opencv.photo.Photo;
 import origami.Camera;
 import origami.Origami;
-import origami.filters.Cartoon2;
 import origami.filters.HueSaturationValue;
 
 import java.util.function.Function;

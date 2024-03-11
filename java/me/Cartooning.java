@@ -3,7 +3,7 @@ package me;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import origami.Origami;
-import origami.filters.LUTCartoon;
+import origami.filters.cartoon.LUTCartoon;
 
 import java.io.File;
 import java.util.Date;

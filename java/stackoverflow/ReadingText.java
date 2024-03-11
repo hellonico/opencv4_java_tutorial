@@ -6,7 +6,8 @@ import org.opencv.imgcodecs.Imgcodecs;
 import origami.Filter;
 import origami.Filters;
 import origami.Origami;
-import origami.filters.EastTextDetector;
+import origami.filters.detect.EastTextDetector;
+
 
 import static origami.Origami.*;
 

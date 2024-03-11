@@ -4,7 +4,8 @@ import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import origami.Filter;
 import origami.Origami;
-import origami.filters.Vintage;
+import origami.filters.instagram.Vintage;
+
 
 import static org.opencv.highgui.HighGui.imshow;
 import static org.opencv.highgui.HighGui.waitKey;

@@ -10,7 +10,7 @@ import origami.Filter;
 import origami.Filters;
 import origami.Origami;
 import origami.filters.FPS;
-import origami.filters.detect.Yolo;
+import origami.filters.detect.yolo.Yolo;
 
 import java.util.List;
 

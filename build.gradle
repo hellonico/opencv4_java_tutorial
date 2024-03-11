@@ -26,7 +26,7 @@ sourceSets {
 
 dependencies {
 
-    compile('origami:filters:1.22') {
+    compile('origami:filters:1.34') {
         exclude group: 'origami', module: 'origami'
     }
     compile 'origami:origami:4.7.0-0'

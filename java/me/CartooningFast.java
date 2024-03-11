@@ -5,7 +5,8 @@ import org.opencv.highgui.HighGui;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 import origami.Origami;
-import origami.filters.Cartoon;
+import origami.filters.cartoon.Cartoon;
+
 
 import javax.swing.*;
 
