@@ -5,16 +5,16 @@ import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.photo.CalibrateDebevec;
-import org.opencv.photo.MergeDebevec;
-import org.opencv.photo.MergeMertens;
-import org.opencv.photo.Photo;
+import org.opencv.photo.*;
 import org.opencv.xphoto.TonemapDurand;
 import org.opencv.xphoto.Xphoto;
+import origami.Origami;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Date;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +74,9 @@ class HDRImaging {
 
         // ! [Tonemap HDR image]
         Mat ldr = new Mat();
-        TonemapDurand tonemap = Xphoto.createTonemapDurand(2.2f, 4.0f, 1.0f, 2.0f, 2.0f);
+        //TonemapDurand tonemap = Xphoto.createTonemapDurand(2.2f, 5.0f, 2.0f, 3.0f, 3.0f);
+        Tonemap tonemap = Photo.createTonemap(2.2f);
+
         tonemap.process(hdr, ldr);
         // ! [Tonemap HDR image]
 
@@ -87,9 +89,10 @@ class HDRImaging {
         // ! [Write results]
         Core.multiply(fusion, new Scalar(255, 255, 255), fusion);
         Core.multiply(ldr, new Scalar(255, 255, 255), ldr);
-        Imgcodecs.imwrite("fusion.png", fusion);
+        Imgcodecs.imwrite("out/fusion.png", fusion);
         Imgcodecs.imwrite("ldr.png", ldr);
-        Imgcodecs.imwrite("hdr.hdr", hdr);
+        // https://viewer.openhdr.org/i
+        Imgcodecs.imwrite("out/hdr"+Instant.now()+".hdr", hdr);
         // ! [Write results]
 
         System.exit(0);
@@ -98,7 +101,7 @@ class HDRImaging {
 
 public class HDRImagingDemo {
     public static void main(String[] args) {
-        // Load the native OpenCV library
+        Origami.init();
 
         new HDRImaging().run(args);
     }
